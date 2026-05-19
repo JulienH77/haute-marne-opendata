@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+*.log
+
+# Fichiers temporaires
+tmp/
+temp/
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Les données générées ne sont PAS ignorées (elles sont committées par Actions)
+# Décommenter les lignes suivantes si vous préférez ne pas les versionner :
+# data/clouds/*.jpg
+# data/weather/*.geojson
+# data/weather/*.png
+# data/population/*.geojson
