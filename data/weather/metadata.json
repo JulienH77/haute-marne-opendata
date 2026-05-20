@@ -1,8 +1,7 @@
 {
-  "last_updated": "2026-05-20T06:44:22Z",
+  "last_updated": "2026-05-20T11:37:40Z",
   "source": "Open-Meteo (https://open-meteo.com)",
   "license": "CC BY 4.0",
-  "attribution": "Weather data by Open-Meteo.com",
   "zones": [
     "france",
     "haute-marne"
@@ -25,5 +24,13 @@
       "unit": "m/s"
     }
   },
+  "outputs_per_zone": [
+    "_weather.geojson",
+    "_weather.csv",
+    "_temperature_2m.tif",
+    "_precipitation.tif",
+    "_cloud_cover.tif",
+    "_wind_speed_10m.tif"
+  ],
   "errors": []
 }

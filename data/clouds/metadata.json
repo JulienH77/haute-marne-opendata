@@ -1,16 +1,41 @@
 {
-  "last_updated": "2026-05-20T06:44:20Z",
+  "last_updated": "2026-05-20T11:37:38Z",
   "source": "clouds.matteason.co.uk",
-  "source_url": "https://clouds.matteason.co.uk/images/4096x2048/clouds.jpg",
-  "source_license": "CC0 1.0 Universal",
-  "attribution": "Contains modified EUMETSAT data",
-  "original_resolution": "4096×2048",
-  "projection": "EPSG:4326 (équirectangulaire)",
+  "source_url": "https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg",
+  "source_license": "CC0 1.0 — Contains modified EUMETSAT data",
+  "resolution_limitation": "L'image mondiale 8192×4096 donne ~28×26 px natifs sur Haute-Marne. Pour un visuel satellite haute résolution à l'échelle départementale, utiliser les services WMS ci-dessous.",
+  "wms_alternatives": {
+    "EUMETSAT_Meteosat_visible": {
+      "url": "https://eumetview.eumetsat.int/geoserver/wms",
+      "layer": "BAS:METEOSAT_0DEG_VIS006",
+      "format": "image/png",
+      "description": "Satellite visible haute résolution (EUMETSAT, gratuit)",
+      "qgis_connection_type": "WMS"
+    },
+    "Copernicus_sentinel_hub": {
+      "url": "https://services.sentinel-hub.com/ogc/wms/{INSTANCE_ID}",
+      "description": "Sentinel-2 nuages temps quasi-réel (compte gratuit requis)",
+      "signup": "https://www.sentinel-hub.com/"
+    },
+    "NASA_GIBS_MODIS_Terra": {
+      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi",
+      "layer": "MODIS_Terra_CorrectedReflectance_TrueColor",
+      "format": "image/jpeg",
+      "description": "MODIS Terra couleurs vraies (NASA, CC0, ~250m résolution)",
+      "qgis_connection_type": "WMS"
+    },
+    "OpenWeatherMap_cloud_tiles": {
+      "url": "https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid={API_KEY}",
+      "description": "Tuiles nuages temps réel (clé API gratuite requise)",
+      "signup": "https://openweathermap.org/api",
+      "qgis_connection_type": "XYZ"
+    }
+  },
   "zones": {
     "world": {
       "file": "world.jpg",
-      "width_px": 4096,
-      "height_px": 2048,
+      "width_px": 8192,
+      "height_px": 4096,
       "bbox": {
         "lon_min": -180.0,
         "lat_min": -90.0,
@@ -20,8 +45,8 @@
     },
     "france": {
       "file": "france.jpg",
-      "width_px": 167,
-      "height_px": 111,
+      "width_px": 334,
+      "height_px": 222,
       "bbox": {
         "lon_min": -5.14,
         "lat_min": 41.33,
@@ -31,8 +56,8 @@
     },
     "haute-marne": {
       "file": "haute-marne.jpg",
-      "width_px": 14,
-      "height_px": 13,
+      "width_px": 348,
+      "height_px": 324,
       "bbox": {
         "lon_min": 4.7,
         "lat_min": 47.5,
