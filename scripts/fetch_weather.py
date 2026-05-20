@@ -95,8 +95,10 @@ VARIABLES = {
 
 OUTPUT_DIR = "data/weather"
 OPENMETEO_URL = "https://api.open-meteo.com/v1/forecast"
-CHUNK_SIZE = 500   # Nombre max de points par requête API
-RETRY_DELAY = 5    # Secondes entre les tentatives
+
+# Réduit à 100 par sécurité — l'API multi-points accepte jusqu'à ~100 par requête POST
+CHUNK_SIZE = 100
+RETRY_DELAY = 5    # secondes entre tentatives
 
 
 # ------------------------------------------------------------
@@ -114,22 +116,32 @@ def generate_grid_points(bbox: tuple, resolution: float):
 
 def fetch_openmeteo_chunk(lats: np.ndarray, lons: np.ndarray, retries: int = 3) -> list:
     """
-    Interroge l'API Open-Meteo pour un chunk de points.
+    Interroge l'API Open-Meteo pour un chunk de points via POST (JSON body).
+    Évite l'erreur 414 "Request-URI Too Large" des requêtes GET avec beaucoup de points.
     Retourne une liste de dicts de résultats.
     """
     var_list = list(VARIABLES.keys())
-    params = {
-        "latitude":  ",".join(f"{v:.4f}" for v in lats),
-        "longitude": ",".join(f"{v:.4f}" for v in lons),
-        "current":   ",".join(var_list),
+
+    # Corps JSON envoyé en POST — pas de limite de taille d'URL
+    payload = {
+        "latitude":  [round(float(v), 4) for v in lats],
+        "longitude": [round(float(v), 4) for v in lons],
+        "current":   var_list,
         "wind_speed_unit": "ms",
         "timezone":  "Europe/Paris",
         "forecast_days": 1,
     }
 
+    headers = {"Content-Type": "application/json"}
+
     for attempt in range(retries):
         try:
-            resp = requests.get(OPENMETEO_URL, params=params, timeout=120)
+            resp = requests.post(
+                OPENMETEO_URL,
+                json=payload,
+                headers=headers,
+                timeout=120,
+            )
             resp.raise_for_status()
             data = resp.json()
             # Si un seul point, l'API retourne un objet (pas une liste)
@@ -167,7 +179,6 @@ def save_geojson(records: list, zone_name: str, timestamp: str) -> None:
     """Génère et sauvegarde le GeoJSON de points météo pour une zone."""
     features = []
     for r in records:
-        # Ignorer les points sans données valides
         if r.get("temperature_2m") is None:
             continue
         props = {k: v for k, v in r.items() if k not in ("lat", "lon")}
@@ -278,11 +289,11 @@ def process_zone(zone_name: str, zone_config: dict, timestamp: str) -> None:
         chunk_lats = lats[i : i + CHUNK_SIZE]
         chunk_lons = lons[i : i + CHUNK_SIZE]
         n_end = min(i + CHUNK_SIZE, len(lats))
-        print(f"   Requête API points {i + 1}–{n_end}...")
+        print(f"   Requête POST points {i + 1}–{n_end}...")
         results = fetch_openmeteo_chunk(chunk_lats, chunk_lons)
         all_records.extend(extract_records(results))
         if n_end < len(lats):
-            time.sleep(0.5)  # Petit délai pour ne pas saturer l'API
+            time.sleep(0.3)  # Délai léger entre chunks
 
     save_geojson(all_records, zone_name, timestamp)
 
