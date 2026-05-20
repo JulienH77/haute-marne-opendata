@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-20T11:37:46Z",
+  "last_updated": "2026-05-20T19:57:26Z",
+  "annee_recente": 2021,
+  "annee_ancienne": null,
+  "insee_recent_ok": false,
+  "insee_ancien_ok": false,
   "sources": {
     "geometries": "geo.api.gouv.fr",
     "populations": "INSEE via data.gouv.fr"
   },
-  "license": "Licence Ouverte 2.0",
-  "insee_data_available": false,
-  "pop_2015_nb_communes": 0,
-  "pop_2021_nb_communes": 0,
   "critical_errors": []
 }
