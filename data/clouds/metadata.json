@@ -1,69 +1,72 @@
 {
-  "last_updated": "2026-05-20T20:06:02Z",
+  "last_updated": "2026-05-20T21:50:57Z",
   "source": "clouds.matteason.co.uk",
   "source_url": "https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg",
   "source_license": "CC0 1.0 — Contains modified EUMETSAT data",
-  "resolution_limitation": "L'image mondiale 8192×4096 donne ~28×26 px natifs sur Haute-Marne. Pour un visuel satellite haute résolution à l'échelle départementale, utiliser les services WMS ci-dessous.",
+  "resolution_note": "Image 8192×4096 → ~29×27 px natifs sur Haute-Marne. GeoTIFF fournis mais pixelisés à l'échelle départementale. Pour haute résolution, utiliser wms_alternatives ci-dessous.",
+  "outputs_per_zone": [
+    "<zone>.jpg (aperçu)",
+    "<zone>.tif (GeoTIFF EPSG:4326 pour QGIS)"
+  ],
   "wms_alternatives": {
-    "EUMETSAT_Meteosat_visible": {
-      "url": "https://eumetview.eumetsat.int/geoserver/wms",
-      "layer": "BAS:METEOSAT_0DEG_VIS006",
-      "format": "image/png",
-      "description": "Satellite visible haute résolution (EUMETSAT, gratuit)",
-      "qgis_connection_type": "WMS"
-    },
-    "Copernicus_sentinel_hub": {
-      "url": "https://services.sentinel-hub.com/ogc/wms/{INSTANCE_ID}",
-      "description": "Sentinel-2 nuages temps quasi-réel (compte gratuit requis)",
-      "signup": "https://www.sentinel-hub.com/"
-    },
     "NASA_GIBS_MODIS_Terra": {
       "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi",
       "layer": "MODIS_Terra_CorrectedReflectance_TrueColor",
-      "format": "image/jpeg",
-      "description": "MODIS Terra couleurs vraies (NASA, CC0, ~250m résolution)",
-      "qgis_connection_type": "WMS"
+      "type": "WMS — sans clé API"
     },
-    "OpenWeatherMap_cloud_tiles": {
+    "EUMETSAT_Meteosat": {
+      "url": "https://eumetview.eumetsat.int/geoserver/wms",
+      "layer": "BAS:METEOSAT_0DEG_VIS006",
+      "type": "WMS — sans clé API"
+    },
+    "OpenWeatherMap_nuages": {
       "url": "https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid={API_KEY}",
-      "description": "Tuiles nuages temps réel (clé API gratuite requise)",
-      "signup": "https://openweathermap.org/api",
-      "qgis_connection_type": "XYZ"
+      "type": "XYZ tiles — clé gratuite sur openweathermap.org",
+      "signup": "https://openweathermap.org/api"
     }
   },
   "zones": {
     "world": {
-      "file": "world.jpg",
+      "jpg": "world.jpg",
+      "tif": "world.tif",
       "width_px": 8192,
       "height_px": 4096,
+      "native_px": "8192×4096",
       "bbox": {
         "lon_min": -180.0,
         "lat_min": -90.0,
         "lon_max": 180.0,
         "lat_max": 90.0
-      }
+      },
+      "crs": "EPSG:4326"
     },
     "france": {
-      "file": "france.jpg",
+      "jpg": "france.jpg",
+      "tif": "france.tif",
       "width_px": 334,
       "height_px": 222,
+      "native_px": "334×222",
       "bbox": {
         "lon_min": -5.14,
         "lat_min": 41.33,
         "lon_max": 9.56,
         "lat_max": 51.09
-      }
+      },
+      "crs": "EPSG:4326"
     },
     "haute-marne": {
-      "file": "haute-marne.jpg",
-      "width_px": 348,
-      "height_px": 324,
+      "jpg": "haute-marne.jpg",
+      "tif": "haute-marne.tif",
+      "width_px": 174,
+      "height_px": 162,
+      "native_px": "29×27",
       "bbox": {
         "lon_min": 4.7,
         "lat_min": 47.5,
         "lon_max": 5.95,
         "lat_max": 48.65
-      }
+      },
+      "crs": "EPSG:4326"
     }
   }
 }
