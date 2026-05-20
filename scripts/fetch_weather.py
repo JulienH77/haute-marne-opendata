@@ -2,14 +2,14 @@
 """
 fetch_weather.py
 ----------------
-Interroge l'API Open-Meteo (https://open-meteo.com, CC BY 4.0)
-pour une grille de points sur la France et la Haute-Marne.
-
-Utilise des requêtes GET avec chunks de 50 points max pour éviter
-l'erreur 414 "Request-URI Too Large" (500 pts en GET = URL > 8 Ko).
-50 pts × ~35 chars = ~1750 chars par URL, bien sous la limite.
+Interroge l'API Open-Meteo pour une grille de points sur la France
+et la Haute-Marne. Génère :
+  - GeoJSON de points (chargeable directement dans QGIS via URL raw GitHub)
+  - GeoTIFF géoréférencés par variable (chargeable dans QGIS comme raster)
+  - CSV (bonus, lisible partout)
 """
 
+import csv
 import json
 import os
 import sys
@@ -21,14 +21,18 @@ import requests
 
 try:
     from scipy.interpolate import griddata
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    HAS_PLOTTING = True
+    HAS_SCIPY = True
 except ImportError:
-    HAS_PLOTTING = False
-    print("⚠️  scipy/matplotlib non disponibles — génération PNG désactivée")
+    HAS_SCIPY = False
+    print("⚠️  scipy non disponible — GeoTIFF désactivés")
 
+try:
+    import rasterio
+    from rasterio.transform import from_bounds
+    HAS_RASTERIO = True
+except ImportError:
+    HAS_RASTERIO = False
+    print("⚠️  rasterio non disponible — GeoTIFF désactivés")
 
 # ------------------------------------------------------------
 # Configuration des zones
@@ -48,34 +52,20 @@ ZONES = {
 }
 
 VARIABLES = {
-    "temperature_2m": {
-        "label": "Température (°C)", "cmap": "RdYlBu_r",
-        "unit": "°C", "vmin": -20, "vmax": 45,
-    },
-    "precipitation": {
-        "label": "Précipitations (mm/h)", "cmap": "Blues",
-        "unit": "mm/h", "vmin": 0, "vmax": 15,
-    },
-    "cloud_cover": {
-        "label": "Couverture nuageuse (%)", "cmap": "Greys",
-        "unit": "%", "vmin": 0, "vmax": 100,
-    },
-    "wind_speed_10m": {
-        "label": "Vitesse du vent (m/s)", "cmap": "YlOrRd",
-        "unit": "m/s", "vmin": 0, "vmax": 30,
-    },
+    "temperature_2m":  {"label": "Température (°C)",        "unit": "°C"},
+    "precipitation":   {"label": "Précipitations (mm/h)",   "unit": "mm/h"},
+    "cloud_cover":     {"label": "Couverture nuageuse (%)", "unit": "%"},
+    "wind_speed_10m":  {"label": "Vitesse du vent (m/s)",   "unit": "m/s"},
 }
 
-OUTPUT_DIR = "data/weather"
+OUTPUT_DIR   = "data/weather"
 OPENMETEO_URL = "https://api.open-meteo.com/v1/forecast"
-
-# 50 points par requête GET = URL ~1700 chars, bien sous la limite de 8 Ko
-CHUNK_SIZE = 50
-RETRY_DELAY = 5
+CHUNK_SIZE   = 50    # 50 pts × ~35 chars ≈ 1750 chars/URL — pas de risque de 414
+RETRY_DELAY  = 5
 
 
 # ------------------------------------------------------------
-# Grille de points
+# Grille & API
 # ------------------------------------------------------------
 
 def generate_grid_points(bbox, resolution):
@@ -86,16 +76,7 @@ def generate_grid_points(bbox, resolution):
     return g_lon.flatten(), g_lat.flatten()
 
 
-# ------------------------------------------------------------
-# Appel API Open-Meteo (GET, multi-points par virgules)
-# ------------------------------------------------------------
-
 def fetch_openmeteo_chunk(lats, lons, retries=3):
-    """
-    Requête GET avec latitude/longitude séparés par des virgules.
-    Open-Meteo accepte jusqu'à ~100 points en GET tant que l'URL reste raisonnable.
-    Avec CHUNK_SIZE=50 l'URL fait ~1700 chars — pas de risque de 414.
-    """
     params = {
         "latitude":  ",".join(f"{v:.4f}" for v in lats),
         "longitude": ",".join(f"{v:.4f}" for v in lons),
@@ -104,18 +85,15 @@ def fetch_openmeteo_chunk(lats, lons, retries=3):
         "timezone":  "Europe/Paris",
         "forecast_days": 1,
     }
-
     for attempt in range(retries):
         try:
             resp = requests.get(OPENMETEO_URL, params=params, timeout=60)
             resp.raise_for_status()
             data = resp.json()
-            if isinstance(data, dict):
-                data = [data]
-            return data
+            return [data] if isinstance(data, dict) else data
         except requests.RequestException as e:
             if attempt < retries - 1:
-                print(f"   ⚠️  Tentative {attempt + 1}/{retries} : {e}. Retry dans {RETRY_DELAY}s...")
+                print(f"   ⚠️  Tentative {attempt+1}/{retries} : {e}. Retry dans {RETRY_DELAY}s...")
                 time.sleep(RETRY_DELAY)
             else:
                 raise
@@ -123,17 +101,17 @@ def fetch_openmeteo_chunk(lats, lons, retries=3):
 
 def extract_records(api_results):
     records = []
-    for result in api_results:
-        current = result.get("current", {})
-        record = {"lat": result["latitude"], "lon": result["longitude"]}
+    for r in api_results:
+        current = r.get("current", {})
+        rec = {"lat": r["latitude"], "lon": r["longitude"]}
         for var in VARIABLES:
-            record[var] = current.get(var)
-        records.append(record)
+            rec[var] = current.get(var)
+        records.append(rec)
     return records
 
 
 # ------------------------------------------------------------
-# GeoJSON
+# GeoJSON (chargeable dans QGIS via URL raw GitHub)
 # ------------------------------------------------------------
 
 def save_geojson(records, zone_name, timestamp):
@@ -154,10 +132,11 @@ def save_geojson(records, zone_name, timestamp):
         "metadata": {
             "source": "Open-Meteo (https://open-meteo.com)",
             "license": "CC BY 4.0",
-            "attribution": "Weather data by Open-Meteo.com",
             "last_updated": timestamp,
             "zone": zone_name,
             "nb_points": len(features),
+            "qgis_url": f"https://raw.githubusercontent.com/YOUR_USER/haute-marne-opendata/main/data/weather/{zone_name}_weather.geojson",
+            "variables": {k: v for k, v in VARIABLES.items()},
         },
         "features": features,
     }
@@ -169,16 +148,45 @@ def save_geojson(records, zone_name, timestamp):
 
 
 # ------------------------------------------------------------
-# PNG raster
+# CSV (bonus)
 # ------------------------------------------------------------
 
-def save_raster_png(records, zone_name, var_name, bbox, raster_size):
-    if not HAS_PLOTTING:
+def save_csv(records, zone_name, timestamp):
+    valid = [r for r in records if r.get("temperature_2m") is not None]
+    if not valid:
+        return
+
+    path = os.path.join(OUTPUT_DIR, f"{zone_name}_weather.csv")
+    fieldnames = ["lon", "lat"] + list(VARIABLES.keys()) + ["last_updated"]
+
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for r in valid:
+            row = {k: round(r[k], 6) if isinstance(r.get(k), float) else r.get(k)
+                   for k in fieldnames if k != "last_updated"}
+            row["last_updated"] = timestamp
+            writer.writerow(row)
+    print(f"✓  {path} ({len(valid)} lignes)")
+
+
+# ------------------------------------------------------------
+# GeoTIFF géoréférencé (chargeable directement dans QGIS comme raster)
+# ------------------------------------------------------------
+
+def save_geotiff(records, zone_name, var_name, bbox, raster_size):
+    """
+    Génère un GeoTIFF EPSG:4326 interpolé (méthode linéaire scipy).
+    Directement chargeable dans QGIS : Couche > Ajouter une couche raster
+    ou par URL raw GitHub si le projet QGIS est configuré en HTTP.
+    NoData = -9999.
+    """
+    if not (HAS_SCIPY and HAS_RASTERIO):
         return
 
     valid = [(r["lon"], r["lat"], r[var_name]) for r in records if r.get(var_name) is not None]
     if len(valid) < 4:
-        print(f"   ⚠️  Pas assez de points valides pour {var_name} sur {zone_name}")
+        print(f"   ⚠️  Pas assez de points pour {var_name} ({zone_name})")
         return
 
     pts_lon = np.array([v[0] for v in valid])
@@ -187,32 +195,48 @@ def save_raster_png(records, zone_name, var_name, bbox, raster_size):
 
     lon_min, lat_min, lon_max, lat_max = bbox
     w, h = raster_size
-    g_lon = np.linspace(lon_min, lon_max, w)
-    g_lat = np.linspace(lat_min, lat_max, h)
-    g_lon2d, g_lat2d = np.meshgrid(g_lon, g_lat)
 
-    grid_vals = griddata((pts_lon, pts_lat), pts_val, (g_lon2d, g_lat2d), method="linear")
+    grid_lons = np.linspace(lon_min, lon_max, w)
+    grid_lats = np.linspace(lat_min, lat_max, h)
+    g_lon2d, g_lat2d = np.meshgrid(grid_lons, grid_lats)
 
-    var_info = VARIABLES[var_name]
-    fig, ax = plt.subplots(figsize=(w / 100, h / 100), dpi=100)
-    im = ax.imshow(
-        grid_vals, origin="lower",
-        extent=[lon_min, lon_max, lat_min, lat_max],
-        cmap=var_info["cmap"], vmin=var_info["vmin"], vmax=var_info["vmax"],
-        interpolation="bilinear", aspect="auto",
-    )
-    cbar = plt.colorbar(im, ax=ax, shrink=0.85, pad=0.02)
-    cbar.set_label(var_info["label"], fontsize=9)
-    ax.set_title(f"{var_info['label']} — {zone_name.replace('-', ' ').title()}", fontsize=10, pad=6)
-    ax.set_xlabel("Longitude", fontsize=8)
-    ax.set_ylabel("Latitude", fontsize=8)
-    ax.tick_params(labelsize=7)
-    plt.tight_layout()
+    grid_vals = griddata(
+        (pts_lon, pts_lat), pts_val,
+        (g_lon2d, g_lat2d),
+        method="linear",
+    ).astype(np.float32)
 
-    path = os.path.join(OUTPUT_DIR, f"{zone_name}_{var_name}.png")
-    plt.savefig(path, dpi=100, bbox_inches="tight")
-    plt.close(fig)
-    print(f"✓  {path}")
+    NODATA = -9999.0
+    grid_vals = np.where(np.isnan(grid_vals), NODATA, grid_vals)
+
+    # rasterio attend l'axe Y inversé (nord en haut)
+    grid_vals_flipped = np.flipud(grid_vals)
+
+    transform = from_bounds(lon_min, lat_min, lon_max, lat_max, w, h)
+
+    path = os.path.join(OUTPUT_DIR, f"{zone_name}_{var_name}.tif")
+    with rasterio.open(
+        path, "w",
+        driver="GTiff",
+        height=h, width=w,
+        count=1,
+        dtype=np.float32,
+        crs="EPSG:4326",
+        transform=transform,
+        nodata=NODATA,
+        compress="lzw",           # compression sans perte
+    ) as dst:
+        dst.write(grid_vals_flipped, 1)
+        dst.update_tags(
+            variable=var_name,
+            label=VARIABLES[var_name]["label"],
+            unit=VARIABLES[var_name]["unit"],
+            zone=zone_name,
+            source="Open-Meteo CC BY 4.0",
+        )
+
+    size_kb = os.path.getsize(path) / 1024
+    print(f"✓  {path} ({w}×{h} px, {size_kb:.0f} Ko, EPSG:4326)")
 
 
 # ------------------------------------------------------------
@@ -223,22 +247,24 @@ def process_zone(zone_name, zone_config, timestamp):
     print(f"\n📍 Zone : {zone_name}")
     lons, lats = generate_grid_points(zone_config["bbox"], zone_config["resolution"])
     total = len(lons)
-    print(f"   Grille : {total} points — {(total + CHUNK_SIZE - 1) // CHUNK_SIZE} requêtes GET de {CHUNK_SIZE} pts max")
+    n_chunks = (total + CHUNK_SIZE - 1) // CHUNK_SIZE
+    print(f"   Grille : {total} points → {n_chunks} requêtes GET")
 
     all_records = []
     for i in range(0, total, CHUNK_SIZE):
-        chunk_lats = lats[i : i + CHUNK_SIZE]
-        chunk_lons = lons[i : i + CHUNK_SIZE]
+        chunk_lats = lats[i: i + CHUNK_SIZE]
+        chunk_lons = lons[i: i + CHUNK_SIZE]
         n_end = min(i + CHUNK_SIZE, total)
-        print(f"   Chunk {i + 1}–{n_end}...")
+        print(f"   Chunk {i+1}–{n_end}...")
         results = fetch_openmeteo_chunk(chunk_lats, chunk_lons)
         all_records.extend(extract_records(results))
         if n_end < total:
-            time.sleep(0.2)  # Courtoisie envers l'API
+            time.sleep(0.2)
 
     save_geojson(all_records, zone_name, timestamp)
+    save_csv(all_records, zone_name, timestamp)
     for var_name in VARIABLES:
-        save_raster_png(all_records, zone_name, var_name, zone_config["bbox"], zone_config["raster_size"])
+        save_geotiff(all_records, zone_name, var_name, zone_config["bbox"], zone_config["raster_size"])
 
 
 # ------------------------------------------------------------
@@ -262,9 +288,11 @@ def main():
         "last_updated": timestamp,
         "source": "Open-Meteo (https://open-meteo.com)",
         "license": "CC BY 4.0",
-        "attribution": "Weather data by Open-Meteo.com",
         "zones": list(ZONES.keys()),
-        "variables": {k: {"label": v["label"], "unit": v["unit"]} for k, v in VARIABLES.items()},
+        "variables": {k: v for k, v in VARIABLES.items()},
+        "outputs_per_zone": ["_weather.geojson", "_weather.csv",
+                             "_temperature_2m.tif", "_precipitation.tif",
+                             "_cloud_cover.tif", "_wind_speed_10m.tif"],
         "errors": errors,
     }
     meta_path = os.path.join(OUTPUT_DIR, "metadata.json")
