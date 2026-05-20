@@ -2,14 +2,11 @@ name: "🌤️ Mise à jour données dynamiques (nuages + météo)"
 
 on:
   schedule:
-    # Toutes les 3 heures (UTC) : 0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h
-    # Les nuages matteason sont eux-mêmes mis à jour toutes les 3h
     - cron: "0 */3 * * *"
   workflow_dispatch:
-    # Déclenchement manuel depuis l'onglet Actions
 
 permissions:
-  contents: write   # Nécessaire pour git push
+  contents: write
 
 jobs:
   update-dynamic:
@@ -18,19 +15,12 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      # -----------------------------------------------------------
-      # 1. Checkout du dépôt
-      # -----------------------------------------------------------
       - name: "📥 Checkout"
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Récupérer le dernier commit pour éviter les conflits de push
-          fetch-depth: 1
+          fetch-depth: 0   # Historique complet pour éviter les conflits de rebase
 
-      # -----------------------------------------------------------
-      # 2. Setup Python avec cache pip
-      # -----------------------------------------------------------
       - name: "🐍 Setup Python 3.11"
         uses: actions/setup-python@v5
         with:
@@ -41,18 +31,12 @@ jobs:
       - name: "📦 Install dependencies"
         run: pip install -r scripts/requirements.txt
 
-      # -----------------------------------------------------------
-      # 3. Exécution des scripts
-      # -----------------------------------------------------------
       - name: "☁️ Fetch nuages (EUMETSAT via matteason)"
         run: python scripts/fetch_clouds.py
 
       - name: "🌡️ Fetch météo (Open-Meteo)"
         run: python scripts/fetch_weather.py
 
-      # -----------------------------------------------------------
-      # 4. Commit et push si des fichiers ont changé
-      # -----------------------------------------------------------
       - name: "💾 Commit & push"
         run: |
           git config user.name  "github-actions[bot]"
@@ -60,12 +44,17 @@ jobs:
 
           git add data/clouds/ data/weather/
 
-          # N'effectuer le commit que si des fichiers ont réellement changé
           if git diff --staged --quiet; then
-            echo "Aucune modification détectée, skip commit."
-          else
-            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
-            git commit -m "chore(data): mise à jour automatique nuages + météo — ${TIMESTAMP} [skip ci]"
-            git push
-            echo "✅ Données pushées avec succès."
+            echo "Aucune modification — skip commit."
+            exit 0
           fi
+
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+          git commit -m "chore(data): nuages + météo — ${TIMESTAMP} [skip ci]"
+
+          # Rebase sur le remote avant push pour éviter les conflits
+          # (peut arriver si deux exécutions se chevauchent)
+          git pull --rebase origin main
+
+          git push
+          echo "✅ Push OK."
