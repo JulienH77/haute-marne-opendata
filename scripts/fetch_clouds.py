@@ -26,8 +26,8 @@ from PIL import Image
 # Configuration
 # ------------------------------------------------------------
 
-SOURCE_URL = "https://clouds.matteason.co.uk/images/4096x2048/clouds.jpg"
-SOURCE_RESOLUTION = (4096, 2048)  # largeur x hauteur en pixels
+SOURCE_URL = "https://clouds.matteason.co.uk/images/8192x4096/clouds.jpg"
+SOURCE_RESOLUTION = (8192, 4096)  # largeur x hauteur en pixels
 
 # Bounding boxes (lon_min, lat_min, lon_max, lat_max) en EPSG:4326
 ZONES = {
