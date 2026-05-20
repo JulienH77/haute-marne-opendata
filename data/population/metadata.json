@@ -1,11 +1,10 @@
 {
-  "last_updated": "2026-05-20T06:08:01Z",
+  "last_updated": "2026-05-20T11:16:48Z",
   "sources": {
-    "geometries": "geo.api.gouv.fr (Etalab)",
+    "geometries": "geo.api.gouv.fr",
     "populations": "INSEE via data.gouv.fr"
   },
   "license": "Licence Ouverte 2.0",
   "insee_data_available": false,
-  "critical_errors": [],
-  "warnings": []
+  "critical_errors": []
 }
