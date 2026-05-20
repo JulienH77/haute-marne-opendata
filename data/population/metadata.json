@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-05-20T19:57:26Z",
+  "last_updated": "2026-05-20T21:51:06Z",
   "annee_recente": 2021,
   "annee_ancienne": null,
-  "insee_recent_ok": false,
+  "insee_recent_ok": true,
   "insee_ancien_ok": false,
   "sources": {
     "geometries": "geo.api.gouv.fr",
