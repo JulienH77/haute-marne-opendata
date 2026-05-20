@@ -1,0 +1,29 @@
+{
+  "last_updated": "2026-05-20T06:44:22Z",
+  "source": "Open-Meteo (https://open-meteo.com)",
+  "license": "CC BY 4.0",
+  "attribution": "Weather data by Open-Meteo.com",
+  "zones": [
+    "france",
+    "haute-marne"
+  ],
+  "variables": {
+    "temperature_2m": {
+      "label": "Température (°C)",
+      "unit": "°C"
+    },
+    "precipitation": {
+      "label": "Précipitations (mm/h)",
+      "unit": "mm/h"
+    },
+    "cloud_cover": {
+      "label": "Couverture nuageuse (%)",
+      "unit": "%"
+    },
+    "wind_speed_10m": {
+      "label": "Vitesse du vent (m/s)",
+      "unit": "m/s"
+    }
+  },
+  "errors": []
+}

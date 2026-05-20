@@ -1,0 +1,44 @@
+{
+  "last_updated": "2026-05-20T06:44:20Z",
+  "source": "clouds.matteason.co.uk",
+  "source_url": "https://clouds.matteason.co.uk/images/4096x2048/clouds.jpg",
+  "source_license": "CC0 1.0 Universal",
+  "attribution": "Contains modified EUMETSAT data",
+  "original_resolution": "4096×2048",
+  "projection": "EPSG:4326 (équirectangulaire)",
+  "zones": {
+    "world": {
+      "file": "world.jpg",
+      "width_px": 4096,
+      "height_px": 2048,
+      "bbox": {
+        "lon_min": -180.0,
+        "lat_min": -90.0,
+        "lon_max": 180.0,
+        "lat_max": 90.0
+      }
+    },
+    "france": {
+      "file": "france.jpg",
+      "width_px": 167,
+      "height_px": 111,
+      "bbox": {
+        "lon_min": -5.14,
+        "lat_min": 41.33,
+        "lon_max": 9.56,
+        "lat_max": 51.09
+      }
+    },
+    "haute-marne": {
+      "file": "haute-marne.jpg",
+      "width_px": 14,
+      "height_px": 13,
+      "bbox": {
+        "lon_min": 4.7,
+        "lat_min": 47.5,
+        "lon_max": 5.95,
+        "lat_max": 48.65
+      }
+    }
+  }
+}

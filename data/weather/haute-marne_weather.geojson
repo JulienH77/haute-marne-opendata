@@ -1,0 +1,5504 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Open-Meteo (https://open-meteo.com)",
+    "license": "CC BY 4.0",
+    "attribution": "Weather data by Open-Meteo.com",
+    "last_updated": "2026-05-20T06:44:22Z",
+    "zone": "haute-marne",
+    "nb_points": 323
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.15,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.36,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 91,
+        "wind_speed_10m": 4.41,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 4.4,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 4.21,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.4,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.0,
+        "precipitation": 0.0,
+        "cloud_cover": 88,
+        "wind_speed_10m": 4.24,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.2,
+        "precipitation": 0.0,
+        "cloud_cover": 76,
+        "wind_speed_10m": 3.45,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.0,
+        "precipitation": 0.0,
+        "cloud_cover": 68,
+        "wind_speed_10m": 3.28,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.8,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 2.96,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 2.89,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.8,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.41,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.1,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 3.72,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.9,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 3.14,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.0,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 3.19,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.8,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 2.82,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 3.01,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.07,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          47.5
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.2,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 3.68,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 4.84,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.6,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 4.94,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 5.53,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 4.91,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 91,
+        "wind_speed_10m": 4.11,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.53,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 91,
+        "wind_speed_10m": 3.65,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 4.67,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 4.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 87,
+        "wind_speed_10m": 2.69,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.9,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 3.47,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 3.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.5,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 3.35,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.0,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 3.73,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.0,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 3.36,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.1,
+        "precipitation": 0.0,
+        "cloud_cover": 85,
+        "wind_speed_10m": 2.97,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.1,
+        "precipitation": 0.0,
+        "cloud_cover": 89,
+        "wind_speed_10m": 3.23,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.0,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 3.69,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          47.56
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.32,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 91,
+        "wind_speed_10m": 5.39,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 4.63,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.4,
+        "precipitation": 0.0,
+        "cloud_cover": 91,
+        "wind_speed_10m": 4.67,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.5,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 5.22,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.6,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 5.6,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.71,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.93,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.79,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.15,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 14.1,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 2.63,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 4.04,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 3.4,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.5,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.32,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 3.57,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 3.44,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 88,
+        "wind_speed_10m": 3.42,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.6,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 3.14,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.9,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.27,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          47.64
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.71,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.41,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.59,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 4.46,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 5.58,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.46,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.5,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.92,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.56,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.74,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.37,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 2.88,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 91,
+        "wind_speed_10m": 3.65,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 3.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 3.79,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.57,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.14,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.75,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.5,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 3.3,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 2.97,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          47.7
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.49,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.27,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.24,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.63,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.36,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 4.14,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.3,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.55,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.5,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.85,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.02,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.35,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.68,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 80,
+        "wind_speed_10m": 3.86,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 3.52,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 3.77,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.73,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.57,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.67,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 84,
+        "wind_speed_10m": 4.37,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          47.78
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.8,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 4.33,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 4.02,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.75,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.93,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.14,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.63,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 4.11,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.06,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.16,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.49,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.4,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.04,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 89,
+        "wind_speed_10m": 5.0,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.63,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 3.07,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 3.81,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.52,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.08,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.59,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          47.84
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.03,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 5.16,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 5.82,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.85,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.32,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.51,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 3.93,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.04,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.9,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.02,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.47,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.25,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.28,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 3.65,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 4.34,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.5,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.79,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.92,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 3.26,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          47.92
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.6,
+        "precipitation": 0.0,
+        "cloud_cover": 88,
+        "wind_speed_10m": 3.36,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.5,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 5.22,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.1,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 5.09,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.63,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.4,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.1,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.32,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.6,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.54,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.65,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.96,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 4.87,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          47.98
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 4.92,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 4.78,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.7,
+        "precipitation": 0.0,
+        "cloud_cover": 89,
+        "wind_speed_10m": 3.85,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.0
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 3.96,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.26,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.31,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.15,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 3.54,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 4.12,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.79,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.52,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.83,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.2,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.85,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 3.98,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 5.04,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 4.74,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.75,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.66,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 5.49,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.43,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.3,
+        "precipitation": 0.0,
+        "cloud_cover": 86,
+        "wind_speed_10m": 3.69,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.06
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.5,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 4.68,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.28,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.94,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.19,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 3.67,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.16,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.03,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.46,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.59,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 2.92,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.3,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.24,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.98,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.26,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 5.75,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 6.09,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.22,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 90,
+        "wind_speed_10m": 4.95,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 89,
+        "wind_speed_10m": 4.71,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.14
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.88,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.33,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.29,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.3,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 3.77,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.02,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.98,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.43,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.59,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.16,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.24,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.61,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.49,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 5.51,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.73,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.11,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 93,
+        "wind_speed_10m": 5.05,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 86,
+        "wind_speed_10m": 5.52,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 5.85,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.2
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.85,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.94,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.69,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.52,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.96,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.43,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 4.02,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.04,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.36,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 2.95,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.62,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.12,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 92,
+        "wind_speed_10m": 5.76,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.39,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.85,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.31,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.6,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.0,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.69,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 4.98,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.28
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 91,
+        "wind_speed_10m": 5.95,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.47,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.56,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.42,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.61,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.66,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.1,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.22,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.22,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.0,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.45,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.99,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 5.39,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.32,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.25,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.79,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.09,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.88,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.5,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.34
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 5.7,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.61,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.91,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.83,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.19,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.24,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.08,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.03,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.71,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 3.8,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.05,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.02,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.6,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 4.46,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 3.73,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.44,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.41,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.14,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.3,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.32,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.4
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.91,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.96,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.96,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.18,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.0,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.56,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.36,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.24,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.91,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.1,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.21,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.7,
+        "precipitation": 0.2,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.47,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.2,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.98,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.1,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.25,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.12,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 5.35,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 94,
+        "wind_speed_10m": 5.11,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 96,
+        "wind_speed_10m": 5.83,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 95,
+        "wind_speed_10m": 5.2,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.48,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.48
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.78,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.46,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.89,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.33,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 3.26,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.56,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.8,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.66,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.22,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.1,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.7,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.1,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.23,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.8,
+        "precipitation": 0.1,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.44,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.6,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.61,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.2,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 5.42,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.2,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.47,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.47,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.64,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 4.47,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.54
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.7,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 5.72,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 3.89,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.78,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.68,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.9,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.53,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.92,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.1,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.12,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.98,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.8,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.78,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.06,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.94,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.3,
+        "precipitation": 0.0,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.36,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.4,
+        "precipitation": 0.1,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.43,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.26,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.1,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.16,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.34,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.1,
+        "cloud_cover": 100,
+        "wind_speed_10m": 4.43,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.5,
+        "precipitation": 0.4,
+        "cloud_cover": 100,
+        "wind_speed_10m": 3.94,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.48,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.9,
+        "precipitation": 0.4,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.97,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.54,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 11.6,
+        "precipitation": 0.4,
+        "cloud_cover": 100,
+        "wind_speed_10m": 5.57,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.2,
+        "precipitation": 0.1,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.62,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.68,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 5.35,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.76,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.1,
+        "precipitation": 0.0,
+        "cloud_cover": 98,
+        "wind_speed_10m": 4.78,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.82,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 12.0,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 6.07,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.6,
+        "precipitation": 0.0,
+        "cloud_cover": 99,
+        "wind_speed_10m": 4.1,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.96,
+          48.62
+        ]
+      },
+      "properties": {
+        "temperature_2m": 13.0,
+        "precipitation": 0.0,
+        "cloud_cover": 97,
+        "wind_speed_10m": 4.75,
+        "last_updated": "2026-05-20T06:44:22Z"
+      }
+    }
+  ]
+}
