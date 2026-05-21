@@ -2,15 +2,16 @@
 """
 fetch_population.py
 -------------------
-Population Haute-Marne + France avec évolution inter-annuelle.
+Population Haute-Marne + France.
 
-Stratégie robuste pour les populations légales INSEE :
-  - Année récente  : 2021 (principale)
-  - Année ancienne : essai de plusieurs URLs directes connues pour 2019, 2018, 2020
-    Les URLs static.data.gouv.fr/resources/... sont les plus stables car basées
-    sur le slug du dataset, pas un UUID interne.
-  - Parsing ultra-défensif : détection automatique des colonnes CODGEO + PMUN
-    avec affichage de TOUTES les colonnes en cas d'échec pour diagnostic.
+Stratégie population historique :
+  Le fichier "base-cc-evol-struct-pop-2021" de l'INSEE contient DÉJÀ
+  les colonnes pour plusieurs années de recensement (2021, 2016, 2011, 2006...).
+  → UN SEUL téléchargement, plusieurs années disponibles.
+
+  Si ce fichier échoue, fallback sur les séries historiques data.gouv.fr.
+
+Années cibles : 2022/2021 (récente) + 2016, 2011 (historiques dans le même fichier).
 """
 
 import csv
@@ -28,218 +29,52 @@ DEP_HAUTE_MARNE = "52"
 GEO_API_BASE    = "https://geo.api.gouv.fr"
 OUTPUT_DIR      = "data/population"
 
-# URLs directes connues pour chaque année (format static.data.gouv.fr).
-# Plusieurs tentatives par année car les noms de fichiers varient selon le millésime.
-# En cas d'échec, on essaie l'URL suivante dans la liste.
-POPLEG_URLS = {
-    2021: [
-        "https://www.data.gouv.fr/fr/datasets/r/6a4e7a5b-e8f2-499c-8d14-0ae19e7e0f21",
-        "https://www.data.gouv.fr/fr/datasets/r/d9de1a5f-47ec-41c6-b9b2-cf21dfde019a",
-    ],
-    2020: [
-        "https://www.data.gouv.fr/fr/datasets/r/7a4e7a5b-e8f2-499c-8d14-0ae19e7e0f20",
-        "https://www.data.gouv.fr/fr/datasets/r/e0e7b5a3-d6e8-4dc7-a98d-71a24aa1b0de",
-    ],
-    2019: [
-        "https://www.data.gouv.fr/fr/datasets/r/c0e7b5a3-d6e8-4dc7-a98d-71a24aa1b0d1",
-        "https://www.data.gouv.fr/fr/datasets/r/d5c2f8b1-3e7a-4b9d-8c6e-2f1a0b4c5d7e",
-    ],
-    2018: [
-        "https://www.data.gouv.fr/fr/datasets/r/a3e7c5b2-d8f4-4dc7-b98d-61a24aa1b0de",
-        "https://www.data.gouv.fr/fr/datasets/r/b1e5c7a3-d4f8-4bd7-a98d-51a24bb1c0ef",
-    ],
-}
+# Fichier unique qui contient PLUSIEURS années de recensement
+# Ce fichier "base-cc-evol-struct-pop" est publié par l'INSEE sur data.gouv.fr
+# et contient des colonnes PMUN21 (2021), PMUN16 (2016), PMUN11 (2011), PMUN06 (2006)
+MULTI_YEAR_SOURCES = [
+    # Fichier 2021 — contient PMUN21, PMUN16, PMUN11, PMUN06
+    "https://www.data.gouv.fr/fr/datasets/r/d9de1a5f-47ec-41c6-b9b2-cf21dfde019a",
+    "https://www.data.gouv.fr/fr/datasets/r/6a4e7a5b-e8f2-499c-8d14-0ae19e7e0f21",
+    # Slug direct data.gouv.fr
+    "https://www.data.gouv.fr/fr/datasets/populations-legales-en-2021/",
+]
 
-# Ordre de préférence pour l'année ancienne
-YEAR_RECENT  = 2021
-YEARS_OLD    = [2019, 2020, 2018]
+# Fallback : fichier séries historiques (1968→aujourd'hui)
+HISTORIQUE_SOURCES = [
+    "https://www.data.gouv.fr/fr/datasets/populations-legales-des-communes-depuis-1968/",
+]
+
+# Années souhaitées (récentes → anciennes)
+YEAR_TARGETS = [2022, 2021, 2020, 2019, 2018, 2016, 2011, 2006]
 
 
-# ------------------------------------------------------------
-# Recherche dynamique via l'API data.gouv.fr (backup fiable)
-# ------------------------------------------------------------
+# -------------------------------------------------------
+# Téléchargement + parsing défensif
+# -------------------------------------------------------
 
-def search_dataset_resources(year: int) -> list[str]:
-    """
-    Interroge l'API data.gouv.fr pour récupérer les URLs de ressources CSV/ZIP
-    du dataset 'populations légales en {year}'.
-    Retourne une liste d'URLs à essayer dans l'ordre.
-    """
-    # 1. Essai par slug canonique
-    slug = f"populations-legales-en-{year}"
-    urls = []
+def get_raw_content(url: str) -> bytes | None:
+    """Télécharge une URL et retourne les bytes bruts (gère ZIP et CSV direct)."""
     try:
-        r = requests.get(
-            f"https://www.data.gouv.fr/api/1/datasets/{slug}/",
-            timeout=15, headers={"User-Agent": "haute-marne-opendata/1.0"}
-        )
-        if r.status_code == 200:
-            for res in r.json().get("resources", []):
-                u    = res.get("url", "")
-                fmt  = (res.get("format") or "").lower()
-                name = (res.get("title") or "").lower()
-                is_data = fmt in ("csv", "zip") or u.lower().endswith((".csv", ".zip"))
-                is_doc  = any(w in name for w in ("notice", "readme", "doc", "dictionnaire", "métadonnée"))
-                if is_data and not is_doc:
-                    urls.append(u)
-    except Exception as e:
-        print(f"   ⚠️  Slug '{slug}' inaccessible : {e}")
-
-    # 2. Recherche plein texte si slug a échoué
-    if not urls:
-        try:
-            r2 = requests.get(
-                "https://www.data.gouv.fr/api/1/datasets/",
-                params={"q": f"populations légales {year}", "page_size": 5},
-                timeout=15, headers={"User-Agent": "haute-marne-opendata/1.0"}
-            )
-            if r2.status_code == 200:
-                for ds in r2.json().get("data", []):
-                    title = ds.get("title", "").lower()
-                    if str(year) in title or str(year) in ds.get("slug", ""):
-                        for res in ds.get("resources", []):
-                            u    = res.get("url", "")
-                            fmt  = (res.get("format") or "").lower()
-                            name = (res.get("title") or "").lower()
-                            is_data = fmt in ("csv", "zip") or u.lower().endswith((".csv", ".zip"))
-                            is_doc  = any(w in name for w in ("notice", "readme", "doc", "dictionnaire"))
-                            if is_data and not is_doc:
-                                urls.append(u)
-        except Exception as e:
-            print(f"   ⚠️  Recherche texte échouée : {e}")
-
-    # Dédoublonner tout en préservant l'ordre
-    seen = set()
-    result = []
-    for u in urls:
-        if u not in seen:
-            seen.add(u)
-            result.append(u)
-    return result
-
-
-# ------------------------------------------------------------
-# Parsing d'un fichier INSEE (ZIP ou CSV)
-# ------------------------------------------------------------
-
-def parse_popleg_content(raw: bytes, year: int) -> dict:
-    """
-    Parse le contenu brut d'un fichier populations légales INSEE.
-    Détecte automatiquement les colonnes CODGEO et PMUN.
-    Affiche toutes les colonnes disponibles si détection échoue.
-    """
-    # Décodage
-    text = None
-    for enc in ("utf-8-sig", "latin-1", "utf-8", "cp1252"):
-        try:
-            text = raw.decode(enc)
-            break
-        except UnicodeDecodeError:
-            continue
-    if not text:
-        print("      ⚠️  Encodage non détecté")
-        return {}
-
-    first_line = text.split("\n")[0]
-    delimiters = [";", ",", "\t", "|"]
-    delimiter  = max(delimiters, key=lambda d: first_line.count(d))
-
-    reader = csv.DictReader(io.StringIO(text), delimiter=delimiter)
-    try:
-        rows = list(reader)
-    except Exception as e:
-        print(f"      ⚠️  Erreur parsing CSV : {e}")
-        return {}
-
-    if not rows:
-        print("      ⚠️  CSV vide")
-        return {}
-
-    keys  = list(rows[0].keys())
-    year2 = str(year)[-2:]
-
-    print(f"      Colonnes disponibles ({len(keys)}) : {keys[:15]}")
-
-    # --- Colonne code commune ---
-    codgeo_candidates = ["CODGEO", "COM", "CODE_COM", "CODECOM", "CODE", "INSEE_COM"]
-    codgeo_col = next(
-        (k for k in keys if k.upper().strip() in codgeo_candidates),
-        None
-    )
-    if not codgeo_col:
-        # Cherche une colonne qui ressemble à un code INSEE (5 chiffres)
-        for k in keys:
-            sample = [r.get(k, "") for r in rows[:5] if r.get(k)]
-            if sample and all(re.match(r"^\d{5}$", str(v).strip()) for v in sample):
-                codgeo_col = k
-                print(f"      → Code commune détecté par contenu : '{k}'")
-                break
-
-    # --- Colonne population municipale ---
-    pmun_candidates = [
-        f"PMUN{year2}", f"PMUN{year}",
-        f"P{year2}_POP", f"P{year}_POP",
-        "PMUN",
-    ]
-    # Aussi essayer d'autres années si la principale échoue
-    for y in range(year - 1, year - 5, -1):
-        y2 = str(y)[-2:]
-        pmun_candidates += [f"PMUN{y2}", f"P{y2}_POP"]
-
-    pmun_col = next(
-        (k for k in keys if k.upper().strip() in [c.upper() for c in pmun_candidates]),
-        None,
-    )
-    if pmun_col is None:
-        pmun_col = next((k for k in keys if "PMUN" in k.upper()), None)
-    if pmun_col is None:
-        pmun_col = next((k for k in keys if re.search(r"P\d{2}_POP", k.upper())), None)
-
-    if not codgeo_col:
-        print(f"      ⚠️  Colonne code commune INTROUVABLE. Toutes les colonnes : {keys}")
-        return {}
-    if not pmun_col:
-        print(f"      ⚠️  Colonne PMUN INTROUVABLE. Toutes les colonnes : {keys}")
-        return {}
-
-    print(f"      → CODGEO='{codgeo_col}' | PMUN='{pmun_col}'")
-
-    result = {}
-    for row in rows:
-        code = str(row.get(codgeo_col, "")).strip()
-        val  = str(row.get(pmun_col,  "")).strip()
-        if code and val and val not in ("", "nan", "NaN"):
-            try:
-                result[code] = int(float(val))
-            except ValueError:
-                pass
-
-    print(f"      → {len(result):,} communes parsées")
-    return result
-
-
-def try_download_and_parse(url: str, year: int) -> dict:
-    """Télécharge une URL et tente de parser le contenu."""
-    print(f"      URL : ...{url[-65:]}")
-    try:
-        resp = requests.get(
-            url, timeout=90, allow_redirects=True,
-            headers={"User-Agent": "haute-marne-opendata/1.0"}
-        )
-        resp.raise_for_status()
+        r = requests.get(url, timeout=90, allow_redirects=True,
+                         headers={"User-Agent": "haute-marne-opendata/1.0"})
+        r.raise_for_status()
     except requests.RequestException as e:
-        print(f"      ⚠️  Téléchargement échoué ({e})")
-        return {}
+        print(f"      ⚠️  Téléchargement : {e}")
+        return None
 
-    content      = resp.content
-    content_type = resp.headers.get("content-type", "")
-    print(f"      Reçu : {len(content) / 1024:.0f} Ko — {content_type[:50]}")
+    content = r.content
+    size_kb = len(content) / 1024
+    print(f"      Reçu : {size_kb:.0f} Ko")
 
-    # ZIP ?
-    raw = None
+    if len(content) < 1000:
+        print(f"      ⚠️  Fichier trop petit ({size_kb:.0f} Ko) — probablement une page HTML")
+        return None
+
     if content[:2] == b"PK":
         try:
             z = zipfile.ZipFile(io.BytesIO(content))
+            # Prendre le plus gros CSV/TXT (= le fichier de données, pas la notice)
             csv_files = sorted(
                 [n for n in z.namelist()
                  if n.lower().endswith((".csv", ".txt"))
@@ -248,123 +83,290 @@ def try_download_and_parse(url: str, year: int) -> dict:
             )
             if not csv_files:
                 csv_files = [n for n in z.namelist() if n.lower().endswith((".csv", ".txt"))]
-            if csv_files:
-                print(f"      → ZIP : sélection de '{csv_files[0]}'")
-                raw = z.read(csv_files[0])
-            else:
-                print(f"      ⚠️  ZIP vide. Contenu : {z.namelist()}")
-                return {}
+            if not csv_files:
+                print(f"      ⚠️  ZIP vide : {z.namelist()}")
+                return None
+            print(f"      ZIP → '{csv_files[0]}' ({z.getinfo(csv_files[0]).file_size // 1024} Ko)")
+            return z.read(csv_files[0])
         except Exception as e:
             print(f"      ⚠️  ZIP invalide : {e}")
-            return {}
-    else:
-        raw = content
-
-    return parse_popleg_content(raw, year)
+            return None
+    return content
 
 
-# ------------------------------------------------------------
-# Fetch principal avec cascade d'URLs
-# ------------------------------------------------------------
+def decode_text(raw: bytes) -> str | None:
+    for enc in ("utf-8-sig", "latin-1", "utf-8", "cp1252"):
+        try:
+            return raw.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return None
 
-def fetch_popleg(year: int) -> dict:
+
+def parse_multi_year_csv(raw: bytes) -> dict[int, dict[str, int]]:
     """
-    Tente de récupérer les populations légales pour une année donnée.
-    Essaie d'abord les URLs hardcodées, puis la recherche API data.gouv.fr.
+    Parse un fichier populations légales INSEE et extrait TOUTES les années
+    disponibles (colonnes PMUN\d\d ou P\d\d_POP).
+    Retourne {année: {code_commune: population}}.
     """
-    print(f"\n   === Année {year} ===")
-
-    # Construire la liste complète d'URLs à tester
-    urls_to_try = list(POPLEG_URLS.get(year, []))  # URLs hardcodées en premier
-
-    # Compléter avec les URLs trouvées dynamiquement
-    dynamic_urls = search_dataset_resources(year)
-    for u in dynamic_urls:
-        if u not in urls_to_try:
-            urls_to_try.append(u)
-
-    if not urls_to_try:
-        print(f"   ⚠️  Aucune URL trouvée pour {year}")
+    text = decode_text(raw)
+    if not text:
+        print("      ⚠️  Encodage non détecté")
         return {}
 
-    print(f"   {len(urls_to_try)} URL(s) à tester")
-    for i, url in enumerate(urls_to_try, 1):
-        print(f"   Tentative {i}/{len(urls_to_try)} :")
-        result = try_download_and_parse(url, year)
-        if result:
-            print(f"   ✓  {year} : {len(result):,} communes chargées")
-            return result
+    first_line = text.split("\n")[0]
+    delimiters = [";", ",", "\t", "|"]
+    delimiter  = max(delimiters, key=lambda d: first_line.count(d))
 
-    print(f"   ✗  Toutes les URLs ont échoué pour {year}")
-    return {}
+    try:
+        reader = csv.DictReader(io.StringIO(text), delimiter=delimiter)
+        rows   = list(reader)
+    except Exception as e:
+        print(f"      ⚠️  Erreur CSV : {e}")
+        return {}
+
+    if not rows:
+        print("      ⚠️  CSV vide")
+        return {}
+
+    keys = list(rows[0].keys())
+    print(f"      Colonnes ({len(keys)}) : {keys[:20]}")
+
+    # --- Colonne code commune ---
+    codgeo_col = next(
+        (k for k in keys if k.upper().strip() in ("CODGEO", "COM", "CODE_COM", "CODECOM", "CODE")),
+        None,
+    )
+    if not codgeo_col:
+        # Détection par contenu : colonne dont les valeurs ressemblent à des codes INSEE
+        for k in keys:
+            vals = [rows[i].get(k, "").strip() for i in range(min(10, len(rows)))]
+            if vals and all(re.match(r"^\d{5}$", v) for v in vals if v):
+                codgeo_col = k
+                break
+    if not codgeo_col:
+        print(f"      ⚠️  Colonne code commune introuvable. Colonnes : {keys}")
+        return {}
+    print(f"      Code commune : '{codgeo_col}'")
+
+    # --- Colonnes population par année ---
+    # Patterns : PMUN21, PMUN2021, P21_POP, P2021_POP, PTOT21...
+    year_cols = {}
+    for k in keys:
+        ku = k.upper().strip()
+        # PMUN + 2 chiffres
+        m = re.match(r"^PMUN(\d{2})$", ku)
+        if m:
+            y2 = int(m.group(1))
+            year = 2000 + y2 if y2 <= 30 else 1900 + y2
+            year_cols[year] = k
+            continue
+        # PMUN + 4 chiffres
+        m = re.match(r"^PMUN(\d{4})$", ku)
+        if m:
+            year_cols[int(m.group(1))] = k
+            continue
+        # P + 2 chiffres + _POP
+        m = re.match(r"^P(\d{2})_POP$", ku)
+        if m:
+            y2 = int(m.group(1))
+            year = 2000 + y2 if y2 <= 30 else 1900 + y2
+            year_cols[year] = k
+            continue
+        # P + 4 chiffres + _POP
+        m = re.match(r"^P(\d{4})_POP$", ku)
+        if m:
+            year_cols[int(m.group(1))] = k
+            continue
+
+    if not year_cols:
+        print(f"      ⚠️  Aucune colonne PMUN trouvée. Colonnes : {keys}")
+        return {}
+
+    print(f"      Années trouvées : {sorted(year_cols.keys())} → {year_cols}")
+
+    # --- Extraction ---
+    result: dict[int, dict[str, int]] = {y: {} for y in year_cols}
+    for row in rows:
+        code = str(row.get(codgeo_col, "")).strip()
+        if not re.match(r"^\d{5}$", code):
+            continue
+        for year, col in year_cols.items():
+            val = str(row.get(col, "")).strip()
+            if val and val not in ("", "nan", "NaN", "#"):
+                try:
+                    result[year][code] = int(float(val))
+                except ValueError:
+                    pass
+
+    for y, d in result.items():
+        print(f"      → {y} : {len(d):,} communes")
+    return result
 
 
-def fetch_popleg_with_fallback(years: list[int]) -> tuple[int | None, dict]:
-    for year in years:
-        data = fetch_popleg(year)
-        if data:
-            return year, data
-    return None, {}
+def fetch_all_years_data() -> dict[int, dict[str, int]]:
+    """
+    Tente de charger toutes les années de population disponibles.
+    Stratégie :
+      1. Fichiers multi-années connus (contiennent PMUN21 + PMUN16 + PMUN11...)
+      2. Recherche API data.gouv.fr sur les datasets population
+      3. Retourne le meilleur résultat trouvé
+    """
+    all_years: dict[int, dict[str, int]] = {}
+
+    # --- Stratégie 1 : fichiers multi-années hardcodés ---
+    print("\n[Stratégie 1 : fichiers INSEE multi-années]")
+    for url in MULTI_YEAR_SOURCES:
+        print(f"   Essai : {url[:70]}...")
+        raw = get_raw_content(url)
+        if raw:
+            years_data = parse_multi_year_csv(raw)
+            if years_data:
+                # Fusionner en gardant le max de communes par année
+                for y, d in years_data.items():
+                    if y not in all_years or len(d) > len(all_years[y]):
+                        all_years[y] = d
+                if all_years:
+                    print(f"   ✓  Années récupérées : {sorted(all_years.keys())}")
+                    break
+
+    # --- Stratégie 2 : recherche API data.gouv.fr ---
+    if not all_years:
+        print("\n[Stratégie 2 : recherche API data.gouv.fr]")
+        slugs_to_try = [
+            "populations-legales-en-2021",
+            "populations-legales-en-2020",
+            "populations-legales-en-2019",
+        ]
+        for slug in slugs_to_try:
+            try:
+                r = requests.get(
+                    f"https://www.data.gouv.fr/api/1/datasets/{slug}/",
+                    timeout=15, headers={"User-Agent": "haute-marne-opendata/1.0"}
+                )
+                if r.status_code != 200:
+                    continue
+                resources = r.json().get("resources", [])
+                for res in sorted(resources, key=lambda x: x.get("filesize", 0) or 0, reverse=True):
+                    url  = res.get("url", "")
+                    fmt  = (res.get("format") or "").lower()
+                    name = (res.get("title") or "").lower()
+                    is_data = fmt in ("csv", "zip") or url.lower().endswith((".csv", ".zip"))
+                    is_doc  = any(w in name for w in ("notice", "readme", "doc", "dictionnaire"))
+                    if is_data and not is_doc:
+                        print(f"   Essai : {url[-65:]}")
+                        raw = get_raw_content(url)
+                        if raw:
+                            years_data = parse_multi_year_csv(raw)
+                            if years_data:
+                                all_years.update(years_data)
+                                break
+                if all_years:
+                    break
+            except Exception as e:
+                print(f"   ⚠️  {slug} : {e}")
+
+    return all_years
 
 
-# ------------------------------------------------------------
-# Géographies via geo.api.gouv.fr
-# ------------------------------------------------------------
+# -------------------------------------------------------
+# Géographies geo.api.gouv.fr
+# -------------------------------------------------------
 
 def fetch_communes_geojson(dep: str) -> dict:
     params = {
         "codeDepartement": dep,
         "fields": "nom,code,codeDepartement,codeRegion,population,surface",
-        "format": "geojson", "geometry": "contour",
+        "format": "geojson",
+        "geometry": "contour",
     }
-    resp = requests.get(f"{GEO_API_BASE}/communes", params=params, timeout=60)
-    resp.raise_for_status()
-    return resp.json()
+    r = requests.get(f"{GEO_API_BASE}/communes", params=params, timeout=60)
+    r.raise_for_status()
+    return r.json()
 
 
 def fetch_departements_geojson() -> dict:
-    params = {"fields": "nom,code,codeRegion,population", "format": "geojson", "geometry": "contour"}
-    resp = requests.get(f"{GEO_API_BASE}/departements", params=params, timeout=120)
-    resp.raise_for_status()
-    data = resp.json()
-    return {"type": "FeatureCollection", "features": data} if isinstance(data, list) else data
+    """
+    Récupère les départements avec géométries.
+    Utilise geometry=contour et format=geojson pour avoir les polygones.
+    """
+    params = {
+        "fields": "nom,code,codeRegion,population",
+        "format": "geojson",
+        "geometry": "contour",
+    }
+    r = requests.get(f"{GEO_API_BASE}/departements", params=params, timeout=120)
+    r.raise_for_status()
+    data = r.json()
+
+    # Normalisation selon le type retourné
+    if isinstance(data, list):
+        # Liste brute de features → encapsuler
+        return {"type": "FeatureCollection", "features": data}
+    if isinstance(data, dict):
+        if "features" in data:
+            return data
+        # Dict sans "features" : probablement un seul département
+        return {"type": "FeatureCollection", "features": [data]}
+
+    return {"type": "FeatureCollection", "features": []}
 
 
-# ------------------------------------------------------------
+# -------------------------------------------------------
 # Enrichissement
-# ------------------------------------------------------------
+# -------------------------------------------------------
 
-def enrich_with_evolution(geojson, pop_old, pop_new, year_old, year_new):
+def enrich_communes(geojson, all_years_data: dict[int, dict[str, int]]):
+    """
+    Ajoute à chaque commune :
+      - population_{year} pour chaque année disponible
+      - evolution_absolue / evolution_pct entre la plus récente et la plus ancienne
+    """
+    available_years = sorted(all_years_data.keys(), reverse=True)
+    year_recent = available_years[0]  if available_years else None
+    year_old    = available_years[-1] if len(available_years) > 1 else None
+
     nb_ok = 0
     for feat in geojson.get("features", []):
         props = feat["properties"]
         code  = props.get("code", "")
-        p_new = pop_new.get(code) if pop_new else None
-        p_old = pop_old.get(code) if pop_old else None
 
-        if p_new is not None:
-            props["population"]        = p_new
-            props["population_source"] = f"INSEE {year_new}"
+        # Remplir toutes les années disponibles
+        for year, pop_dict in all_years_data.items():
+            val = pop_dict.get(code)
+            props[f"population_{year}"] = val
+
+        # Mettre à jour la population principale avec la plus récente
+        if year_recent:
+            p_recent = all_years_data[year_recent].get(code)
+            if p_recent is not None:
+                props["population"]        = p_recent
+                props["population_source"] = f"INSEE {year_recent}"
+            else:
+                props["population_source"] = "geo.api.gouv.fr"
+
+        # Calcul évolution
+        if year_recent and year_old and year_recent != year_old:
+            p_new = all_years_data[year_recent].get(code)
+            p_old = all_years_data[year_old].get(code)
+            if p_new is not None and p_old is not None and p_old > 0:
+                props["evolution_absolue"] = p_new - p_old
+                props["evolution_pct"]     = round((p_new - p_old) / p_old * 100, 2)
+                props["evolution_periode"] = f"{year_old}–{year_recent}"
+                nb_ok += 1
+            else:
+                props["evolution_absolue"] = None
+                props["evolution_pct"]     = None
+                props["evolution_periode"] = f"{year_old if year_old else '?'}–{year_recent}"
         else:
-            props["population_source"] = "geo.api.gouv.fr"
-
-        pop_ref = p_new if p_new is not None else props.get("population")
-        props[f"population_{year_new}"] = pop_ref
-
-        if year_old and p_old is not None and pop_ref is not None and p_old > 0:
-            props[f"population_{year_old}"] = p_old
-            props["evolution_absolue"]       = pop_ref - p_old
-            props["evolution_pct"]           = round((pop_ref - p_old) / p_old * 100, 2)
-            props["evolution_periode"]       = f"{year_old}–{year_new}"
-            nb_ok += 1
-        else:
-            props[f"population_{year_old if year_old else 'ancienne'}"] = None
-            props["evolution_absolue"]  = None
-            props["evolution_pct"]      = None
-            props["evolution_periode"]  = f"{'?' if not year_old else year_old}–{year_new}"
+            props["evolution_absolue"] = None
+            props["evolution_pct"]     = None
+            props["evolution_periode"] = "données historiques manquantes"
 
     total = len(geojson.get("features", []))
-    print(f"   → Évolution renseignée : {nb_ok}/{total} communes")
+    print(f"   → Évolution calculée : {nb_ok}/{total} communes")
+    if available_years:
+        print(f"   → Années disponibles dans GeoJSON : {available_years}")
     return geojson
 
 
@@ -383,42 +385,41 @@ def compute_stats(geojson):
     }
 
 
-# ------------------------------------------------------------
+# -------------------------------------------------------
 # Main
-# ------------------------------------------------------------
+# -------------------------------------------------------
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    print("📊 Chargement populations légales INSEE\n")
+    print("📊 Chargement populations légales INSEE (multi-années)")
+    all_years_data = fetch_all_years_data()
 
-    print(f"[Année récente : {YEAR_RECENT}]")
-    pop_new = fetch_popleg(YEAR_RECENT)
-
-    print(f"\n[Année ancienne : cascade {YEARS_OLD}]")
-    year_old, pop_old = fetch_popleg_with_fallback(YEARS_OLD)
-
-    print(f"\nRésumé :")
-    print(f"  {YEAR_RECENT} : {'✓ ' + str(len(pop_new)) + ' communes' if pop_new else '✗ ÉCHEC'}")
-    print(f"  {year_old}   : {'✓ ' + str(len(pop_old)) + ' communes' if pop_old else '✗ ÉCHEC'}")
+    if not all_years_data:
+        print("⚠️  Aucune donnée INSEE chargée — population sans historique")
+    else:
+        print(f"\n✓  Années chargées : {sorted(all_years_data.keys())}")
 
     critical_errors = []
 
     # --- Communes Haute-Marne ---
     print(f"\n📍 Communes Haute-Marne (dép. {DEP_HAUTE_MARNE})")
     try:
+        print("   Récupération géométries...")
         communes_hm = fetch_communes_geojson(DEP_HAUTE_MARNE)
-        communes_hm = enrich_with_evolution(communes_hm, pop_old, pop_new, year_old, YEAR_RECENT)
+        communes_hm = enrich_communes(communes_hm, all_years_data)
         stats       = compute_stats(communes_hm)
 
+        available_years = sorted(all_years_data.keys(), reverse=True)
         communes_hm["metadata"] = {
-            "source":         "geo.api.gouv.fr + INSEE populations légales (data.gouv.fr)",
-            "license":        "Licence Ouverte 2.0 (Etalab)",
-            "last_updated":   timestamp,
-            "departement":    DEP_HAUTE_MARNE,
-            "annee_recente":  YEAR_RECENT,
-            "annee_ancienne": year_old,
+            "source":          "geo.api.gouv.fr + INSEE populations légales (data.gouv.fr)",
+            "license":         "Licence Ouverte 2.0 (Etalab)",
+            "last_updated":    timestamp,
+            "departement":     DEP_HAUTE_MARNE,
+            "annees_dispo":    available_years,
+            "annee_recente":   available_years[0]  if available_years else None,
+            "annee_ancienne":  available_years[-1] if len(available_years) > 1 else None,
             **stats,
         }
 
@@ -434,15 +435,42 @@ def main():
         critical_errors.append(f"Communes HM : {e}")
         print(f"❌ {critical_errors[-1]}", file=sys.stderr)
 
-    # --- Départements France ---
+    # --- Départements France (avec géométries) ---
     print("\n📍 Départements France")
     try:
+        print("   Récupération géométries contour...")
         deps    = fetch_departements_geojson()
         nb_deps = len(deps.get("features", []))
+
+        # Vérifier que les géométries sont bien présentes
+        has_geom = sum(1 for f in deps.get("features", []) if f.get("geometry") is not None)
+        print(f"   → {nb_deps} départements, {has_geom} avec géométrie")
+
+        if has_geom == 0:
+            # Retry avec une approche différente
+            print("   ⚠️  Aucune géométrie — retry avec geometry=bbox...")
+            params2 = {
+                "fields": "nom,code,codeRegion,population",
+                "format": "geojson",
+                "geometry": "bbox",
+            }
+            r2 = requests.get(f"{GEO_API_BASE}/departements", params=params2, timeout=120)
+            r2.raise_for_status()
+            deps2 = r2.json()
+            if isinstance(deps2, list):
+                deps2 = {"type": "FeatureCollection", "features": deps2}
+            has_geom2 = sum(1 for f in deps2.get("features", []) if f.get("geometry") is not None)
+            print(f"   → Retry : {has_geom2} géométries bbox trouvées")
+            if has_geom2 > has_geom:
+                deps = deps2
+
         deps["metadata"] = {
-            "source": "geo.api.gouv.fr", "license": "Licence Ouverte 2.0 (Etalab)",
-            "last_updated": timestamp, "nb_departements": nb_deps,
+            "source":       "geo.api.gouv.fr",
+            "license":      "Licence Ouverte 2.0 (Etalab)",
+            "last_updated": timestamp,
+            "nb_departements": nb_deps,
         }
+
         path = os.path.join(OUTPUT_DIR, "france_departements.geojson")
         with open(path, "w", encoding="utf-8") as f:
             json.dump(deps, f, ensure_ascii=False, indent=2)
@@ -455,21 +483,18 @@ def main():
     # --- Metadata ---
     with open(os.path.join(OUTPUT_DIR, "metadata.json"), "w", encoding="utf-8") as f:
         json.dump({
-            "last_updated":    timestamp,
-            "annee_recente":   YEAR_RECENT,
-            "annee_ancienne":  year_old,
-            "insee_recent_ok": bool(pop_new),
-            "insee_ancien_ok": bool(pop_old),
-            "sources": {"geometries": "geo.api.gouv.fr", "populations": "INSEE via data.gouv.fr"},
+            "last_updated":   timestamp,
+            "annees_dispo":   sorted(all_years_data.keys(), reverse=True),
+            "sources": {
+                "geometries":  "geo.api.gouv.fr",
+                "populations": "INSEE via data.gouv.fr",
+            },
             "critical_errors": critical_errors,
         }, f, ensure_ascii=False, indent=2)
     print(f"\n✓  {OUTPUT_DIR}/metadata.json")
 
     if critical_errors:
         sys.exit(1)
-    if not pop_old:
-        print("\n⚠️  Année ancienne indisponible — évolution absente.")
-        print("    Colle le log complet dans une issue GitHub pour diagnostic.")
     print("\n✅ Données population mises à jour.")
 
 
