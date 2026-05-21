@@ -1,11 +1,35 @@
 {
-  "last_updated": "2026-05-21T02:43:16Z",
+  "last_updated": "2026-05-21T11:39:19Z",
   "source": "Open-Meteo (https://open-meteo.com)",
   "license": "CC BY 4.0",
-  "zones": [
-    "france",
-    "haute-marne"
-  ],
+  "zones": {
+    "france": {
+      "bbox": [
+        -5.14,
+        41.33,
+        9.56,
+        51.09
+      ],
+      "resolution_deg": 0.25,
+      "raster_size": [
+        600,
+        400
+      ]
+    },
+    "haute-marne": {
+      "bbox": [
+        4.7,
+        47.5,
+        5.95,
+        48.65
+      ],
+      "resolution_deg": 0.05,
+      "raster_size": [
+        600,
+        600
+      ]
+    }
+  },
   "variables": {
     "temperature_2m": {
       "label": "Température (°C)",
@@ -24,13 +48,5 @@
       "unit": "m/s"
     }
   },
-  "outputs_per_zone": [
-    "_weather.geojson",
-    "_weather.csv",
-    "_temperature_2m.tif",
-    "_precipitation.tif",
-    "_cloud_cover.tif",
-    "_wind_speed_10m.tif"
-  ],
   "errors": []
 }
