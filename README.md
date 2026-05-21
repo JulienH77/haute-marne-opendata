@@ -8,170 +8,166 @@ Centralisation et mise à jour automatique de données opendata géographiques p
 
 | Couche | Zone | Fréquence | Formats | Source |
 |---|---|---|---|---|
-| ☁️ Nuages | Monde / France / Haute-Marne | **3h** | JPG + GeoTIFF EPSG:4326 | EUMETSAT via [matteason](https://github.com/matteason/live-cloud-maps) |
-| 🌡️ Température (2m) | France / Haute-Marne | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
-| 🌧️ Précipitations | France / Haute-Marne | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
-| 💨 Vent (10m) | France / Haute-Marne | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
-| 🌫️ Couverture nuageuse | France / Haute-Marne | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
-| 👥 Population communale | Haute-Marne | Mensuelle | GeoJSON | geo.api.gouv.fr + INSEE |
-| 📈 Évolution population | Haute-Marne | Mensuelle | GeoJSON (champs intégrés) | INSEE via data.gouv.fr |
+| ☁️ Nuages | Monde / France / HM | **3h** | JPG + GeoTIFF EPSG:4326 | EUMETSAT via [matteason](https://github.com/matteason/live-cloud-maps) |
+| 🌡️ Température (2m) | France / HM | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
+| 🌧️ Précipitations | France / HM | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
+| 💨 Vent (10m) | France / HM | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
+| 🌫️ Couverture nuageuse | France / HM | **3h** | GeoJSON + CSV + GeoTIFF | [Open-Meteo](https://open-meteo.com) |
+| 👥 Population communale | HM | Mensuelle | GeoJSON | geo.api.gouv.fr + INSEE |
 | 🏛️ Départements France | France | Mensuelle | GeoJSON | geo.api.gouv.fr |
 
 ---
 
-## 📁 Structure des fichiers générés
+## 📁 Fichiers générés
 
 ```
 data/
 ├── clouds/
-│   ├── world.jpg / world.tif
-│   ├── france.jpg / france.tif
+│   ├── world.jpg                       ← Nuages mondiaux (JPEG, aperçu)
+│   ├── france.jpg / france.tif         ← France (JPEG + GeoTIFF EPSG:4326)
 │   ├── haute-marne.jpg / haute-marne.tif
 │   └── metadata.json
 │
 ├── weather/
-│   ├── france_weather.geojson          ← Points grille 0.25° (~27 km)
+│   ├── france_weather.geojson          ← ~2300 points, résolution 0.25°
 │   ├── france_weather.csv
-│   ├── france_temperature_2m.tif       ← Raster lissé EPSG:4326 (600×400 px)
+│   ├── france_temperature_2m.tif       ← Raster lissé, 600×400 px, EPSG:4326
 │   ├── france_precipitation.tif
 │   ├── france_cloud_cover.tif
 │   ├── france_wind_speed_10m.tif
-│   ├── haute-marne_weather.geojson     ← Points grille 0.05° (~5 km)
+│   ├── haute-marne_weather.geojson     ← ~400 points, résolution 0.05°
 │   ├── haute-marne_weather.csv
-│   ├── haute-marne_temperature_2m.tif  ← Raster lissé EPSG:4326 (600×600 px)
+│   ├── haute-marne_temperature_2m.tif  ← Raster lissé, 600×600 px, EPSG:4326
 │   ├── haute-marne_precipitation.tif
 │   ├── haute-marne_cloud_cover.tif
 │   ├── haute-marne_wind_speed_10m.tif
 │   └── metadata.json
 │
 └── population/
-    ├── haute-marne_communes.geojson    ← Communes + population toutes années dispo
-    │                                      (population_2021, population_2016,
-    │                                       population_2011, evolution_pct...)
-    ├── france_departements.geojson     ← Départements + géométrie + population
+    ├── haute-marne_communes.geojson
+    ├── france_departements.geojson
     └── metadata.json
 ```
 
 ---
 
-## 🌡️ Détails météo
-
-Les rasters GeoTIFF météo sont générés avec :
-- **Interpolation RegularGridInterpolator** (bilinéaire sur grille régulière) — pas d'artefacts triangulaires
-- **Lissage gaussien** post-interpolation pour des transitions douces
-- Résolution source : **0.25°** (~27 km) pour la France, **0.05°** (~5 km) pour la Haute-Marne
-- Format de sortie : GeoTIFF Float32, EPSG:4326, compression LZW, nodata=-9999
-
----
-
-## 👥 Détails population
-
-Le fichier `haute-marne_communes.geojson` contient pour chaque commune :
+## 👥 Champs population dans `haute-marne_communes.geojson`
 
 | Champ | Description |
 |---|---|
-| `population` | Population municipale (année la plus récente disponible) |
-| `population_2021` | Population INSEE 2021 |
-| `population_2016` | Population INSEE 2016 |
-| `population_2011` | Population INSEE 2011 |
-| `population_2006` | Population INSEE 2006 (si disponible) |
-| `evolution_absolue` | Variation absolue (hab.) entre l'année la plus ancienne et la plus récente |
-| `evolution_pct` | Variation relative (%) |
-| `evolution_periode` | Ex : `2011–2021` |
-| `population_source` | Source de la donnée (`INSEE 2021` ou `geo.api.gouv.fr`) |
+| `population` | Population la plus récente (INSEE) |
+| `population_source` | Ex : `INSEE 2021` |
+| `population_2023` | Population municipale INSEE 2023 (si disponible) |
+| `population_2021` | Population municipale INSEE 2021 |
+| `population_2016` | Population municipale INSEE 2016 |
+| `population_2011` | Population municipale INSEE 2011 |
+| `population_2006` | Population municipale INSEE 2006 |
+| `population_1999` | Population municipale INSEE 1999 |
+| `population_1990` | Population municipale INSEE 1990 |
+| `population_1982` | Population municipale INSEE 1982 |
+| `population_1975` | Population municipale INSEE 1975 |
+| `population_1968` | Population municipale INSEE 1968 |
+| `evolution_absolue` | Variation (hab.) entre l'année la plus ancienne et la plus récente |
+| `evolution_pct` | Variation (%) sur la même période |
+| `evolution_periode` | Ex : `1968–2021` |
 
-Les données multi-années proviennent d'un **unique fichier INSEE** (`base-cc-evol-struct-pop`) qui contient historiquement plusieurs millésimes de recensement.
+**Sources** : deux fichiers INSEE combinés :
+- `base-cc-evol-struct-pop-2021` → 2006, 2011, 2016, 2021
+- Séries historiques INSEE → 1968, 1975, 1982, 1990, 1999
+
+---
+
+## 🌡️ Rasters météo
+
+Générés avec **RegularGridInterpolator** (bilinéaire sur grille régulière, sans artefacts triangulaires) + **lissage gaussien**. Format GeoTIFF Float32, EPSG:4326, nodata=-9999, compression LZW.
+
+| Zone | Résolution source | Taille GeoTIFF sortie |
+|---|---|---|
+| France | 0.25° (~27 km) | 600×400 px |
+| Haute-Marne | 0.05° (~5 km) | 600×600 px |
 
 ---
 
 ## ⚙️ GitHub Actions
 
 ### `update-dynamic.yml` — toutes les 3h
-Déclenché à **00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 UTC** :
-- Nuages → JPG + GeoTIFF (8192×4096 source)
-- Météo → GeoJSON + CSV + GeoTIFF rasters lissés
-- Commit & push avec `git pull --rebase` (anti-conflit)
+
+Deux **jobs parallèles** (pas de timeout global) :
+
+| Job | Timeout | Contenu |
+|---|---|---|
+| `fetch-clouds` | 10 min | Nuages → JPG + GeoTIFF france/HM |
+| `fetch-weather` | 30 min | Météo → GeoJSON + CSV + GeoTIFF (8 rasters) |
+
+> `world.tif` non généré (36 Mo, impraticable — utiliser world.jpg ou les WMS listés dans metadata.json).
 
 ### `update-static.yml` — le 1er de chaque mois
-- Communes Haute-Marne avec toutes les années de recensement disponibles
+
+- Communes Haute-Marne avec séries historiques 1968→2021
 - Départements France avec géométries
 
 ---
 
 ## 🗺️ Intégration QGIS 3.40
 
-### Couche vecteur (GeoJSON)
-`Couche > Ajouter une couche vecteur > Protocole HTTP/HTTPS` :
+### Couche vecteur (GeoJSON) — `Couche > Ajouter une couche vecteur > Protocole HTTP`
 
 ```
-# Météo Haute-Marne (points, toutes variables)
 https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/weather/haute-marne_weather.geojson
-
-# Communes Haute-Marne (population + évolution)
 https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/population/haute-marne_communes.geojson
-
-# Départements France (avec géométries)
 https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/population/france_departements.geojson
 ```
 
-### Couche raster (GeoTIFF)
-`Couche > Ajouter une couche raster > Protocole HTTP/HTTPS` :
+### Couche raster (GeoTIFF) — `Couche > Ajouter une couche raster > Protocole HTTP`
 
 ```
-# Température Haute-Marne
 https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/weather/haute-marne_temperature_2m.tif
-
-# Couverture nuageuse France
 https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/weather/france_cloud_cover.tif
-
-# Nuages (image satellite géoréférencée)
 https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/clouds/france.tif
 ```
 
-### WMS haute résolution (nuages satellite)
-`Couche > Ajouter une couche WMS/WMTS > Nouvelle connexion` :
+### WMS nuages haute résolution — `Couche > Ajouter une couche WMS/WMTS`
 
-| Service | URL de connexion | Couche |
-|---|---|---|
-| NASA GIBS MODIS Terra (250m, sans clé) | `https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi` | `MODIS_Terra_CorrectedReflectance_TrueColor` |
-| EUMETSAT Meteosat visible | `https://eumetview.eumetsat.int/geoserver/wms` | `BAS:METEOSAT_0DEG_VIS006` |
+| Service | URL |
+|---|---|
+| NASA GIBS MODIS (250m, sans clé) | `https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi` → `MODIS_Terra_CorrectedReflectance_TrueColor` |
+| EUMETSAT Meteosat visible | `https://eumetview.eumetsat.int/geoserver/wms` → `BAS:METEOSAT_0DEG_VIS006` |
 
 ---
 
 ## 📐 Zones de découpage
 
-| Zone | Bbox (lon_min, lat_min, lon_max, lat_max) | CRS |
+| Zone | Bbox | CRS |
 |---|---|---|
 | Monde | -180, -90, 180, 90 | EPSG:4326 |
-| France métropolitaine | -5.14, 41.33, 9.56, 51.09 | EPSG:4326 |
+| France métro | -5.14, 41.33, 9.56, 51.09 | EPSG:4326 |
 | Haute-Marne | 4.70, 47.50, 5.95, 48.65 | EPSG:4326 |
-
----
-
-## 🔧 Lancement manuel
-Dans l'onglet **Actions** → cliquer sur le workflow → **"Run workflow"**.
-
-## 🚀 Installation (fork)
-1. Forker ce dépôt
-2. **Settings → Actions → General** → **"Read and write permissions"**
-3. Lancer manuellement les deux workflows
 
 ---
 
 ## 📜 Licences
 
-| Source | Licence | Attribution |
-|---|---|---|
-| EUMETSAT (nuages) | CC0 1.0 | `Contains modified EUMETSAT data` |
-| Open-Meteo | CC BY 4.0 | `Weather data by Open-Meteo.com` |
-| geo.api.gouv.fr | Licence Ouverte 2.0 | `geo.api.gouv.fr — Etalab` |
-| INSEE | Licence Ouverte 2.0 | `© INSEE` |
+| Source | Licence |
+|---|---|
+| EUMETSAT (nuages) | CC0 1.0 — *Contains modified EUMETSAT data* |
+| Open-Meteo | CC BY 4.0 — *Weather data by Open-Meteo.com* |
+| geo.api.gouv.fr | Licence Ouverte 2.0 (Etalab) |
+| INSEE | Licence Ouverte 2.0 (© INSEE) |
+
+---
+
+## 🔧 Lancement manuel
+**Actions → workflow → Run workflow**
+
+## 🚀 Installation (fork)
+1. Forker ce dépôt
+2. **Settings → Actions → General → Read and write permissions** ✅
+3. Lancer manuellement les deux workflows
 
 ---
 
 ## 🔭 Évolutions envisagées
-
-- **Hydrologie** : [Hub'Eau](https://hubeau.eaufrance.fr/) — débits Marne/Aube temps réel
-- **Qualité de l'air** : [ATMO Grand Est](https://www.atmo-grandest.eu/) — API gratuite
-- **Risques naturels** : [Géorisques BRGM](https://www.georisques.gouv.fr/)
+- **Hydrologie** : Hub'Eau — débits Marne/Aube en temps réel
+- **Qualité de l'air** : ATMO Grand Est
+- **Risques naturels** : Géorisques BRGM
 - **Ensoleillement** : Open-Meteo `sunshine_duration`
