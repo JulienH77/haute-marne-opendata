@@ -1,4 +1,4 @@
-name: "🌤️ Mise à jour données dynamiques (nuages + météo)"
+name: "🌤️ Mise à jour données dynamiques (météo)"
 
 on:
   schedule:
@@ -9,50 +9,11 @@ permissions:
   contents: write
 
 jobs:
-  # ----------------------------------------------------------------
-  # Job 1 : Nuages (rapide, ~2 min)
-  # ----------------------------------------------------------------
-  fetch-clouds:
-    name: "☁️ Nuages"
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "pip"
-          cache-dependency-path: "scripts/requirements.txt"
-
-      - run: pip install -r scripts/requirements.txt
-
-      - name: "☁️ Fetch nuages"
-        run: python scripts/fetch_clouds.py
-
-      - name: "💾 Commit nuages"
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/clouds/
-          if git diff --staged --quiet; then
-            echo "Aucune modification."
-          else
-            git commit -m "chore(data): nuages — $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
-            git pull --rebase origin main
-            git push
-          fi
-
-  # ----------------------------------------------------------------
-  # Job 2 : Météo (plus long, ~12 min)
-  # ----------------------------------------------------------------
   fetch-weather:
     name: "🌡️ Météo"
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -67,18 +28,22 @@ jobs:
 
       - run: pip install -r scripts/requirements.txt
 
-      - name: "🌡️ Fetch météo"
+      - name: "🌡️ Fetch météo (Open-Meteo)"
         run: python scripts/fetch_weather.py
 
-      - name: "💾 Commit météo"
+      - name: "💾 Commit & push"
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add data/weather/
+
           if git diff --staged --quiet; then
-            echo "Aucune modification."
-          else
-            git commit -m "chore(data): météo — $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
-            git pull --rebase origin main
-            git push
+            echo "Aucune modification — skip."
+            exit 0
           fi
+
+          git commit -m "chore(data): météo — $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
+          git pull --rebase origin main
+          git push
+          echo "✅ Push OK."
