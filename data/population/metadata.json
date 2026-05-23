@@ -1,9 +1,18 @@
 {
-  "last_updated": "2026-05-21T06:43:09Z",
+  "last_updated": "2026-05-23T12:07:36Z",
   "annees_dispo": [],
-  "sources": {
-    "geometries": "geo.api.gouv.fr",
-    "populations": "INSEE via data.gouv.fr"
-  },
+  "annees_manquantes": [
+    2023,
+    2022,
+    2021,
+    2016,
+    2011,
+    2006,
+    1999,
+    1990,
+    1982,
+    1975,
+    1968
+  ],
   "critical_errors": []
 }
