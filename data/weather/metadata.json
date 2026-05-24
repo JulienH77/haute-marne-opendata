@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-24T18:54:20Z",
+  "last_updated": "2026-05-24T20:37:24Z",
   "source": "Open-Meteo (https://open-meteo.com)",
   "license": "CC BY 4.0",
   "zones": {
@@ -10,11 +10,7 @@
         9.56,
         51.09
       ],
-      "resolution_deg": 0.25,
-      "raster_size": [
-        600,
-        400
-      ]
+      "resolution_deg": 0.25
     },
     "haute-marne": {
       "bbox": [
@@ -23,11 +19,7 @@
         5.95,
         48.65
       ],
-      "resolution_deg": 0.05,
-      "raster_size": [
-        600,
-        600
-      ]
+      "resolution_deg": 0.05
     }
   },
   "variables": {
@@ -48,5 +40,11 @@
       "unit": "m/s"
     }
   },
+  "outputs": [
+    "*.geojson",
+    "*.csv",
+    "*.tif (COG)",
+    "weather.gpkg"
+  ],
   "errors": []
 }
