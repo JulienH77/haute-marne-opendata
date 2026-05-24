@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-24T18:54:28Z",
+  "last_updated": "2026-05-24T20:37:30Z",
   "annees_dispo": [],
   "annees_manquantes": [
     2023,
@@ -14,5 +14,10 @@
     1975,
     1968
   ],
+  "sources": {
+    "geometries_deps": "gregoiredavid/france-geojson",
+    "geometries_communes": "geo.api.gouv.fr",
+    "populations": "INSEE via data.gouv.fr"
+  },
   "critical_errors": []
 }
