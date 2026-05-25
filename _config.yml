@@ -1,0 +1,4 @@
+# GitHub Pages — sert les fichiers statiques avec les bons MIME types
+# Activer dans : Settings > Pages > Branch: main > / (root)
+include:
+  - data
