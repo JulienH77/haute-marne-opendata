@@ -58881,9 +58881,8 @@
   "metadata": {
     "source_geom": "gregoiredavid/france-geojson",
     "source_pop": "geo.api.gouv.fr",
-    "license": "Licence Ouverte 2.0",
-    "last_updated": "2026-05-24T20:37:30Z",
-    "nb_departements": 96,
-    "nb_avec_geometrie": 96
+    "license": "Licence Ouverte 2.0 / MIT",
+    "last_updated": "2026-05-25T08:12:18Z",
+    "nb_departements": 96
   }
 }
