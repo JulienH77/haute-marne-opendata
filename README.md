@@ -12,7 +12,7 @@ Centralisation et mise à jour automatique de données opendata géographiques p
 | 🌧️ Précipitations | France / HM | **3h** | GeoJSON + CSV + COG | [Open-Meteo](https://open-meteo.com) |
 | 🌫️ Couverture nuageuse | France / HM | **3h** | GeoJSON + CSV + COG | [Open-Meteo](https://open-meteo.com) |
 | 💨 Vent (10m) | France / HM | **3h** | GeoJSON + CSV + COG | [Open-Meteo](https://open-meteo.com) |
-| 👥 Population communale | HM | Mensuelle | GeoJSON | geo.api.gouv.fr + INSEE |
+| 👥 Population communale | HM | Mensuelle | GeoJSON | geo.api.gouv.fr + **INSEE Mélodi API** |
 | 🏛️ Départements France | France | Mensuelle | GeoJSON | gregoiredavid + geo.api.gouv.fr |
 | 🕐 Horodatage | Tout | À chaque action | JSON | — |
 
@@ -22,7 +22,7 @@ Centralisation et mise à jour automatique de données opendata géographiques p
 
 ```
 data/
-├── last_update.json                    ← Horodatage de chaque dernière mise à jour
+├── last_update.json                    ← Horodatage de chaque mise à jour
 │
 ├── weather/
 │   ├── france_weather.geojson          ← ~2300 pts, résolution 0.25° (~27 km)
@@ -39,7 +39,7 @@ data/
 │   └── haute-marne_wind_speed_10m.tif
 │
 └── population/
-    ├── haute-marne_communes.geojson    ← Communes + séries 1968–2021
+    ├── haute-marne_communes.geojson    ← Communes + séries historiques
     ├── france_departements.geojson     ← Départements + géométries + population
     └── metadata.json
 ```
@@ -48,14 +48,14 @@ data/
 
 ## 🕐 Horodatage — `data/last_update.json`
 
-Mis à jour automatiquement à chaque exécution de workflow :
-
 ```json
 {
-  "weather_france":      { "timestamp_utc": "2026-05-25T09:00:00Z", "source": "Open-Meteo", "nb_points": 2300 },
-  "weather_haute-marne": { "timestamp_utc": "2026-05-25T09:00:00Z", "source": "Open-Meteo", "nb_points": 400 },
-  "population":          { "timestamp_utc": "2026-05-01T03:00:00Z", "annees_dispo": [2021, 2016, 2011, 2006, 1999, 1990, 1982, 1975, 1968] },
-  "_last_any_update":    "2026-05-25T09:00:00Z"
+  "weather_france":      { "timestamp_utc": "2026-05-27T09:00:00Z", "nb_points": 2300 },
+  "weather_haute-marne": { "timestamp_utc": "2026-05-27T09:00:00Z", "nb_points": 400 },
+  "population":          { "timestamp_utc": "2026-05-01T03:00:00Z",
+                           "source": "INSEE API Mélodi",
+                           "annees_dispo": [2023, 2022, 2021, 2016, 2011, 2006] },
+  "_last_any_update":    "2026-05-27T09:00:00Z"
 }
 ```
 
@@ -63,106 +63,85 @@ Mis à jour automatiquement à chaque exécution de workflow :
 
 ## 👥 Champs population — `haute-marne_communes.geojson`
 
+Source : **API INSEE Mélodi** (`https://api.insee.fr/melodi/data/DS_POPULATIONS_HISTORIQUES`) — sans clé d'accès, données officielles.
+
 | Champ | Description |
 |---|---|
-| `population` | Population la plus récente (source INSEE) |
-| `population_2021` | Recensement 2021 |
-| `population_2016` | Recensement 2016 |
-| `population_2011` | Recensement 2011 |
-| `population_2006` | Recensement 2006 |
-| `population_1999` | Recensement 1999 |
-| `population_1990` | Recensement 1990 |
-| `population_1982` | Recensement 1982 |
-| `population_1975` | Recensement 1975 |
-| `population_1968` | Recensement 1968 |
-| `evolution_absolue` | Variation (hab.) entre la plus ancienne et la plus récente |
+| `population` | Population la plus récente (INSEE Mélodi) |
+| `population_source` | Ex : `INSEE Mélodi 2023` |
+| `population_2023` | Population municipale 2023 |
+| `population_2022` | Population municipale 2022 |
+| `population_2021` | Population municipale 2021 |
+| `population_2016` | Population municipale 2016 |
+| `population_2011` | Population municipale 2011 |
+| `population_2006` | Population municipale 2006 |
+| `population_1999` | Recensement général 1999 (si disponible dans Mélodi) |
+| `population_1990` | Recensement général 1990 (si disponible) |
+| `population_1982` | Recensement général 1982 (si disponible) |
+| `population_1975` | Recensement général 1975 (si disponible) |
+| `population_1968` | Recensement général 1968 (si disponible) |
+| `evolution_absolue` | Variation (hab.) entre l'année la plus ancienne et la plus récente |
 | `evolution_pct` | Variation (%) |
-| `evolution_periode` | Ex : `1968–2021` |
-
-**Sources** :
-- Années récentes (2006/2011/2016/2021) : fichier `base-cc-evol-struct-pop-2021` INSEE (dataset 6692261)
-- Séries historiques (1968/1975/1982/1990/1999) : `base_cc_serie_histo` INSEE (dataset 1893205) + `pop_histo_commune` (dataset 3698339)
+| `evolution_periode` | Ex : `1968–2023` |
 
 ---
 
 ## 🌡️ Rasters météo (COG)
 
-Les fichiers `.tif` sont des **Cloud Optimized GeoTIFF** :
-- Tuilés 512×512, overviews ×2/4/8/16, compression Deflate
-- Float32, EPSG:4326, nodata=-9999
-- Interpolation bilinéaire (RegularGridInterpolator) + lissage gaussien
+**Cloud Optimized GeoTIFF** — tuilés 512×512, overviews ×2/4/8/16, Deflate.
+Interpolation bilinéaire (RegularGridInterpolator) + lissage gaussien — pas d'artefacts triangulaires.
 
----
-
-## 🗺️ Intégration QGIS 3.40
-
-### ① Activer GitHub Pages (étape préalable, une fois)
-
-Pour charger les rasters TIF depuis GitHub dans QGIS, il faut activer GitHub Pages sur le dépôt. Cela permet à GDAL/QGIS de lire les fichiers binaires avec les bons en-têtes HTTP.
-
-**Dans GitHub : Settings → Pages → Branch: main → / (root) → Save**
-
-Une fois activé, les fichiers sont accessibles à :
-```
-https://julienh77.github.io/haute-marne-opendata/data/...
-```
-
-### ② Couches vecteur (GeoJSON) — direct via URL
-
-`Couche > Ajouter une couche vecteur > Source : Protocole HTTP(S)` :
-
-```
-# Météo Haute-Marne (points avec température, pluie, vent, nuages)
-https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/weather/haute-marne_weather.geojson
-
-# Communes Haute-Marne (population + séries historiques 1968–2021)
-https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/population/haute-marne_communes.geojson
-
-# Départements France (avec géométries)
-https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/population/france_departements.geojson
-```
-
-> Les GeoJSON fonctionnent directement avec `raw.githubusercontent.com` car ce sont des fichiers texte.
-
-### ③ Couches raster (COG) — via GitHub Pages
-
-`Couche > Ajouter une couche raster > Source : Protocole HTTP(S)` :
-
-```
-# Température Haute-Marne
-https://julienh77.github.io/haute-marne-opendata/data/weather/haute-marne_temperature_2m.tif
-
-# Couverture nuageuse France
-https://julienh77.github.io/haute-marne-opendata/data/weather/france_cloud_cover.tif
-
-# Vent France
-https://julienh77.github.io/haute-marne-opendata/data/weather/france_wind_speed_10m.tif
-```
-
-> GitHub Pages sert les `.tif` avec le bon MIME type (`image/tiff`), contrairement à `raw.githubusercontent.com` qui les sert en `text/plain`. QGIS 3.40 peut alors les lire directement comme des COG via GDAL.
-
-> **Pourquoi pas raw.githubusercontent.com pour les TIF ?** Ce domaine sert tous les fichiers en `Content-Type: text/plain`, ce qui empêche GDAL de les identifier comme des rasters binaires.
-
-### ④ Image satellite nuages haute résolution — WMS
-
-`Couche > Ajouter une couche WMS/WMTS > Nouvelle connexion` :
-
-| Service | URL de connexion | Couche |
+| Zone | Résolution source | Taille raster sortie |
 |---|---|---|
-| **NASA GIBS MODIS** (250m, sans clé) | `https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi` | `MODIS_Terra_CorrectedReflectance_TrueColor` |
-| **EUMETSAT Meteosat visible** (sans clé) | `https://eumetview.eumetsat.int/geoserver/wms` | `BAS:METEOSAT_0DEG_VIS006` |
+| France | 0.25° (~27 km) | 600×400 px |
+| Haute-Marne | 0.05° (~5 km) | 600×600 px |
 
 ---
 
 ## ⚙️ GitHub Actions
 
 ### `update-dynamic.yml` — toutes les 3h
-Job `fetch-weather` (timeout 30 min) — météo Open-Meteo → GeoJSON + CSV + COG + `last_update.json`
+Job `fetch-weather` (timeout 30 min) — Open-Meteo → GeoJSON + CSV + COG
 
 ### `update-static.yml` — le 1er de chaque mois
-Job `fetch-population` (timeout 30 min) — communes HM + départements France + `last_update.json`
+Job `fetch-population` (timeout 30 min) — INSEE Mélodi → communes HM toutes années + départements France
 
-Les deux workflows utilisent `git pull --rebase` avant le push pour éviter les conflits.
+---
+
+## 🗺️ Intégration QGIS 3.40
+
+### ① Activer GitHub Pages (une fois, pour les rasters)
+
+**Settings → Pages → Branch: main → / (root) → Save**
+
+Les TIF seront alors accessibles à : `https://julienh77.github.io/haute-marne-opendata/data/...`
+
+### ② Couches vecteur (GeoJSON) — `Couche > Ajouter couche vecteur > Protocole HTTP`
+
+```
+https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/weather/haute-marne_weather.geojson
+https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/population/haute-marne_communes.geojson
+https://raw.githubusercontent.com/JulienH77/haute-marne-opendata/main/data/population/france_departements.geojson
+```
+
+### ③ Couches raster (COG) — via GitHub Pages
+
+`Couche > Ajouter couche raster > Protocole HTTP` :
+
+```
+https://julienh77.github.io/haute-marne-opendata/data/weather/haute-marne_temperature_2m.tif
+https://julienh77.github.io/haute-marne-opendata/data/weather/france_cloud_cover.tif
+https://julienh77.github.io/haute-marne-opendata/data/weather/haute-marne_wind_speed_10m.tif
+```
+
+> GitHub Pages sert les `.tif` avec le bon MIME type. `raw.githubusercontent.com` les sert en `text/plain`, ce qui bloque QGIS.
+
+### ④ WMS nuages satellite — `Couche > Ajouter couche WMS/WMTS`
+
+| Service | URL | Couche |
+|---|---|---|
+| **NASA GIBS MODIS** (250m, sans clé) | `https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi` | `MODIS_Terra_CorrectedReflectance_TrueColor` |
+| **EUMETSAT Meteosat** (sans clé) | `https://eumetview.eumetsat.int/geoserver/wms` | `BAS:METEOSAT_0DEG_VIS006` |
 
 ---
 
@@ -181,7 +160,7 @@ Les deux workflows utilisent `git pull --rebase` avant le push pour éviter les 
 ## 🚀 Installation (fork)
 1. Forker le dépôt
 2. **Settings → Actions → General → Read and write permissions** ✅
-3. **Settings → Pages → Branch: main → / (root)** ✅ (pour les rasters QGIS)
+3. **Settings → Pages → Branch: main → / (root)** ✅
 4. Lancer manuellement les deux workflows
 
 ---
@@ -191,8 +170,8 @@ Les deux workflows utilisent `git pull --rebase` avant le push pour éviter les 
 | Source | Licence |
 |---|---|
 | Open-Meteo | CC BY 4.0 — *Weather data by Open-Meteo.com* |
+| INSEE Mélodi API | Licence Ouverte 2.0 (© INSEE) |
 | geo.api.gouv.fr | Licence Ouverte 2.0 (Etalab) |
-| INSEE | Licence Ouverte 2.0 (© INSEE) |
 | gregoiredavid/france-geojson | MIT |
 
 ---
@@ -201,4 +180,4 @@ Les deux workflows utilisent `git pull --rebase` avant le push pour éviter les 
 - **Hydrologie** : Hub'Eau — débits Marne/Aube temps réel
 - **Qualité de l'air** : ATMO Grand Est
 - **Risques naturels** : Géorisques BRGM
-- **Carte interactive** : GitHub Pages avec Leaflet + couches dynamiques
+- **Carte interactive** : GitHub Pages avec Leaflet
