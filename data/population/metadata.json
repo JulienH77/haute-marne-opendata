@@ -1,6 +1,7 @@
 {
-  "last_updated": "2026-05-25T08:12:18Z",
-  "annees_dispo": [],
+  "last_updated": "2026-05-27T06:16:29Z",
+  "source": "INSEE API Mélodi (https://api.insee.fr/melodi)",
+  "annees_dispo_hm": [],
   "annees_manquantes": [
     2023,
     2022,
@@ -14,11 +15,5 @@
     1975,
     1968
   ],
-  "sources": {
-    "geometries_deps": "gregoiredavid/france-geojson",
-    "geometries_communes": "geo.api.gouv.fr",
-    "populations_recent": "INSEE dataset 6692261 (2021→2006)",
-    "populations_histo": "INSEE dataset 1893205 / 3698339 (1968→1999)"
-  },
   "critical_errors": []
 }
