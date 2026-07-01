@@ -473134,7 +473134,7 @@
     "source": "geo.api.gouv.fr (géométries) + INSEE Mélodi API (populations)",
     "license": "Licence Ouverte 2.0 (Etalab / INSEE)",
     "melodi_url": "https://api.insee.fr/melodi/data/DS_POPULATIONS_HISTORIQUES",
-    "last_updated": "2026-06-01T08:26:06Z",
+    "last_updated": "2026-07-01T07:04:28Z",
     "departement": "52",
     "annees_dispo": [],
     "nb_communes": 426,
